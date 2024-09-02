@@ -7,14 +7,13 @@ import { ConnectionService } from '../../service/connection.service';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
-  usuarios: any[] = [];
-  
+  usuarios:any=[];
+  tabla:string="usuario"
   constructor(private apiConnection:ConnectionService){}
 
   ngOnInit(): void {
-    this.apiConnection.getUsuarios().subscribe(data => {
+    this.apiConnection.getData(this.tabla).subscribe(data => {
       this.usuarios = data;
-      console.log(this.usuarios);
     });
   }
 }

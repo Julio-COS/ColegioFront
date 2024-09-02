@@ -1,5 +1,7 @@
+<p>Lista de Usuario</p>
 <ul>
     <li *ngFor="let usuario of usuarios">
       {{ usuario.nombre }} - {{ usuario.apellido }}
     </li>
 </ul>
+{{usuarios |json}}
