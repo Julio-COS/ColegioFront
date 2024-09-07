@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
+  listOperacion:any[]=[
+    {'router':'crudalumno','name':"Alumno"},
+    {'router':'crudapoderado','name':"Apoderado"},
+    {'router':'crudaula','name':"Aulas"},
+    {'router':'crudcurso','name':"Cursos"},
+    {'router':'docente','name':"Docentes"}, 
+    {'router':'horario','name':"Horario"}, 
+    {'router':'matricula','name':"Matricula"}, 
+    {'router':'pagos','name':"Pagos"}, 
+    {'router':'reportedenotas','name':"Reporte De Notas"}, 
+  ]
+
+  
 
 }

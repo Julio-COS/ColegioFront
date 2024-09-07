@@ -1,11 +1,8 @@
-<div class="">cabezera</div>
-<div class="">
-    <ul>
+<div class="w-64 h-full transition-transform">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-blue-400">
+       <ul class="space-y-2 font-medium" *ngFor="let item of listOperacion">
         <li>
-            <a routerLink="menu/crudalumno">Alumno</a>
-        </li>
-        <li>
-            <a routerLink="menu/crudapoderado">Apoderado</a>
+            <a class="rounded bg-fuchsia-300" routerLink={{item.router}}>{{item.name}}</a>
         </li>
     </ul>
 </div>
