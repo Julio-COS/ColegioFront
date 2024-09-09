@@ -8,7 +8,7 @@ import { ConnectionService } from '../../service/connection.service';
 })
 export class UsuarioComponent implements OnInit{
   usuarios:any=[];
-  tabla:string="Getusuario"
+  tabla:string="GETusuario"
 
   constructor(private apiConnection:ConnectionService){}
 

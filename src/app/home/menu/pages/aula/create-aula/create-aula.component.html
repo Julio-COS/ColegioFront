@@ -1,3 +1,17 @@
 
 <h1>Creación Aula</h1>
 <a routerLink="..">Regresar</a>
+
+<form>
+    <div class="flex flex-col w-56">
+        <input type="text" class="my-1" [(ngModel)]="data.nivel" name="nivel">
+        <input type="text" class="my-1" [(ngModel)]="data.seccion" name="seccion">
+        <input type="text" class="my-1" [(ngModel)]="data.gradoActual" name="gradoActual">
+        
+        <button class="bg-red-400 my-1" (click)="addData()">Enviar Data</button>
+    </div>
+</form>
+
+{{data | json}}
+
+

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Aula, AulaResponse } from '../../../../../interface/Aula';
+import { ConnectionService } from '../../../../../service/connection.service';
 
 @Component({
   selector: 'app-create-aula',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './create-aula.component.css'
 })
 export class CreateAulaComponent {
+  data:Aula=new AulaResponse();
 
+  constructor(private connectionService:ConnectionService){}
+
+  addData(){
+    this.connectionService.postAula(this.data).subscribe();
+  }
 }
