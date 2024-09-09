@@ -1,0 +1,26 @@
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th *ngFor="let columna of columnas" scope="col" class="px-6 py-3">
+                    {{columna}}
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of dataSource" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td *ngFor="let nombre of columnas" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{data[nombre]}}
+                </td>
+                <td>
+                    <a (click)="onAction('Editar',data)">Edit</a>
+                    <a (click)="onAction('Eliminar',data)">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { RouterLink } from '@angular/router';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -11,7 +13,8 @@ import { RouterLink } from '@angular/router';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import { RouterLink } from '@angular/router';
   ],exports:[
     HeaderComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    TableComponent
   ]
 })
 export class SharedModule { }

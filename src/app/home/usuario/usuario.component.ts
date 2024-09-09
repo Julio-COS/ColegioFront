@@ -8,7 +8,8 @@ import { ConnectionService } from '../../service/connection.service';
 })
 export class UsuarioComponent implements OnInit{
   usuarios:any=[];
-  tabla:string="usuario"
+  tabla:string="Getusuario"
+
   constructor(private apiConnection:ConnectionService){}
 
   ngOnInit(): void {

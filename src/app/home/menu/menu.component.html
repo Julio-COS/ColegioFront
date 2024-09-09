@@ -1,12 +1,19 @@
-<div class="flex items-center align-middle justify-center">
+<div class="h-full w-full">
     <h1>REGISTRO DE MATRICULA | PNP PIN</h1>
-</div>
-<div class="flex h-full">
-    <app-navigation></app-navigation>
-    <div class="container">
-        <router-outlet></router-outlet>
+
+    <div class="contenido flex relative w-full">
+        <div class="absolute w-2/12 z-40 h-full px-3 py-4 overflow-y-auto">
+            <div class="bg-blue-100 rounded-lg p-3 h-full">
+                <app-navigation></app-navigation>
+            </div>
+        </div>
+        
+        <div class="p-4 w-10/12 absolute right-0 h-full paddi">
+            <div class="bg-blue-50 rounded-lg p-3 h-full">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
-</div>
-<div>
+    
     <app-footer></app-footer>
 </div>
