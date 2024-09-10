@@ -1,5 +1,10 @@
-<h1>Listado Cursos</h1>
-<a routerLink="create">create</a>
+<h1 class="text-gray-500 font-bold text-2xl">
+    Listado Curso
+</h1>
 
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    routerLink="create" type="button">
+    Añadir
+</button>
 
 <app-table [titulo]="title" [columns]="columnas" [data]="dataSource"></app-table>

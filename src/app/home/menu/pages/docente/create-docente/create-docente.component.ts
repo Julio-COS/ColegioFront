@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Docente, DocenteResponse } from '../../../../../interface/Docente';
+import { ConnectionService } from '../../../../../service/connection.service';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-create-docente',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './create-docente.component.css'
 })
 export class CreateDocenteComponent {
+  data:Docente=new DocenteResponse();
 
+  constructor(private connectionService:ConnectionService){}
+
+  addData(){
+    this.connectionService.postDocente(this.data).subscribe();
+  }
 }

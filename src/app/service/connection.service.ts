@@ -24,23 +24,31 @@ export class ConnectionService {
     return this.http.get<Aula[]>(this.apiUrl+"GETaulas")
   }
   postAula(data:Aula): Observable<Aula[]>{
-    console.log(data);
     return this.http.post<Aula[]>(this.apiUrl+"POSTaula",data)
   }
 
   //CURSO
   getCurso(): Observable<Curso[]>{
-    return this.http.get<Curso[]>(this.apiUrl+"GETcursos")
+    return this.http.get<Curso[]>(this.apiUrl+"GETcursos");
+  }
+  postCurso(data:Curso): Observable<Curso[]>{
+    return this.http.post<Curso[]>(this.apiUrl+"POSTcurso",data);
   }
 
   //HORARIO
   getHorario(): Observable<Horario[]>{
-    return this.http.get<Horario[]>(this.apiUrl+"GEThorarios")
+    return this.http.get<Horario[]>(this.apiUrl+"GEThorarios");
+  }
+  postHorario(data:Horario): Observable<Horario[]>{
+    return this.http.post<Horario[]>(this.apiUrl+"POSThorario",data);
   }
 
   //DOCENTE
   getDocente(): Observable<Docente[]>{
     return this.http.get<Docente[]>(this.apiUrl+"GETdocentes")
+  }
+  postDocente(data:Docente): Observable<Docente[]>{
+    return this.http.post<Docente[]>(this.apiUrl+"POSTdocente",data);
   }
 
 }

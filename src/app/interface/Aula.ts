@@ -2,7 +2,7 @@ export interface Aula{
     idAula:             number;
     nivel:              string;
     seccion:            string;
-    gradoActual:       string;
+    gradoActual:        string;
 }
 
 export class AulaResponse{

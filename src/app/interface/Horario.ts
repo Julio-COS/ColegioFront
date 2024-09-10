@@ -1,11 +1,13 @@
+import { format } from "date-fns";
+
 export interface Horario{
     idHorario:      number;
     idAula:         number;
     idDocente:      number;
     idCurso:        number;
 
-    fechaInicio:    Date;
-    fechaFinal:     Date;
+    fechaInicio:    string;//date
+    fechaFinal:     string;//date
     horaInicio:     string;
     horaFina:       string;
 }
@@ -16,8 +18,8 @@ export class HorarioResponse{
     idDocente=0;
     idCurso=0;
 
-    fechaInicio=new Date;
-    fechaFinal=new Date;
+    fechaInicio=format(new Date(),'yyyy-MM-dd');
+    fechaFinal=format(new Date(),'yyyy-MM-dd');
     horaInicio='';
     horaFina='';
 }
