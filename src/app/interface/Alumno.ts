@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export interface Alumno{
+export interface Alumno {
     idEstudiante:       number;
     nombres:            string;
     apeMaterno:         string;
@@ -13,7 +13,7 @@ export interface Alumno{
     telefono:           string;
 }
 
-export class AlumnoResponse{
+export class AlumnoResponse {
     idEstudiante=0;
     nombres='';
     apeMaterno='';
