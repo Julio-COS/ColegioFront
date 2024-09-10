@@ -1,32 +1,39 @@
 
 <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
-    <h1 class="text-gray-500 font-bold text-2xl">Creación Vacancia Matricula</h1>
+    <h1 class="text-gray-500 font-bold text-2xl">Creación Docente</h1>
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
         <div class="flex flex-row my-2 content-between">
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    Aula
+                    Matricula Vacancia
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idAula" name="idAula">
+                    [(ngModel)]="data.idMVacancia" name="idAula">
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Estudiante
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    [(ngModel)]="data.idEstudiante" name="idDocente">
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Estado
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                [(ngModel)]="data.estado" name="idCurso">
             </div>
         </div>
 
         <div class="flex flex-row my-2 content-between">
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    Disponibilidad Actual
+                    Fecha Registro
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.disponibilidadActual" name="disponibilidadActual" [disabled]="true">
-            </div>
-            <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                    Disponibilidad Total
-                </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.disponibilidadTotal" name="disponibilidadTotal">
+                [(ngModel)]="data.fechaRegistro" name="fechaInicio" [disabled]="true">
             </div>
         </div>
 
@@ -41,3 +48,5 @@
         </div>
     </div>
 </form>
+
+{{data | json}}

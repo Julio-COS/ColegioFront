@@ -5,6 +5,9 @@ import { Aula } from '../interface/Aula';
 import { Curso } from '../interface/Curso';
 import { Horario } from '../interface/Horario';
 import { Docente } from '../interface/Docente';
+import { Alumno } from '../interface/Alumno';
+import { Matricula } from '../interface/Matricula';
+import { MatriculaVacancia } from '../interface/MatriculaVacancia';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +53,37 @@ export class ConnectionService {
   postDocente(data:Docente): Observable<Docente[]>{
     return this.http.post<Docente[]>(this.apiUrl+"POSTdocente",data);
   }
+
+  //ALUMNO
+  getAlumno(): Observable<Alumno[]>{
+    return this.http.get<Alumno[]>(this.apiUrl+"GETalumnos");
+  }
+  postAlumno(data:Alumno): Observable<Alumno[]>{
+    return this.http.post<Alumno[]>(this.apiUrl+"POSTalumno",data);
+  }
+
+  //Matricula
+  getMatricula(): Observable<Matricula[]>{
+    return this.http.get<Matricula[]>(this.apiUrl+"GETmatriculas");
+  }
+  postMatricula(data:Matricula): Observable<Matricula[]>{
+    return this.http.post<Matricula[]>(this.apiUrl+"POSTmatriculas",data);
+  }
+
+  //MatriculaVacancia
+  getMatriculaVacancia(): Observable<MatriculaVacancia[]>{
+    return this.http.get<MatriculaVacancia[]>(this.apiUrl+"GETmatriculaVacancias");
+  }
+  postMatriculaVacancia(data:MatriculaVacancia): Observable<MatriculaVacancia[]>{
+    return this.http.post<MatriculaVacancia[]>(this.apiUrl+"POSTmatriculaVacancia",data);
+  }
+
+/*     //MatriculaVacancia
+    get(): Observable<[]>{
+      return this.http.get<[]>(this.apiUrl+"GETs");
+    }
+    post(data:): Observable<[]>{
+      return this.http.post<[]>(this.apiUrl+"POST",data);
+    } */
 
 }

@@ -6,7 +6,7 @@ export interface MatriculaVacancia{
 }
 
 export class MatriculaVacanciaResponse{
-    idvacancia=0;
+    idMVacancia=0;
     idAula=0;
     disponibilidadActual=0;
     disponibilidadTotal=0;

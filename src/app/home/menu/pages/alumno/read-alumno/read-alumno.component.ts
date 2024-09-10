@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
-import { MatriculaVacancia } from '../../../../../interface/MatriculaVacancia';
+import { Alumno } from '../../../../../interface/Alumno';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 
 @Component({
-  selector: 'app-read-mvacancia',
-  templateUrl: './read-mvacancia.component.html',
-  styleUrl: './read-mvacancia.component.css'
+  selector: 'app-read-alumno',
+  templateUrl: './read-alumno.component.html',
+  styleUrl: './read-alumno.component.css'
 })
-export class ReadMVacanciaComponent {
-  dataSource:MatriculaVacancia[]=[];
+export class ReadAlumnoComponent {
+  dataSource:Alumno[]=[];
   columnas:string[]=[];
-  title:string="MatriculaVacancia";
+  title:string="Alumno";
 
   constructor(private connectionService:ConnectionService){}
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getMatriculaVacancia().subscribe(data=>{
+    this.connectionService.getAlumno().subscribe(data=>{
       this.dataSource=data;
     })
   }
