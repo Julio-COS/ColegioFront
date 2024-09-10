@@ -6,10 +6,21 @@ export interface Horario{
     idDocente:      number;
     idCurso:        number;
 
-    fechaInicio:    string;//date
-    fechaFinal:     string;//date
-    horaInicio:     string;
-    horaFina:       string;
+    Fecha_inicio:    string;//date
+    Fecha_final:     string;//date
+    hora_inicio:     string;
+    hora_final:      string;
+}
+
+export interface HorarioInfo{
+    strAula:         string;
+    strDocente:      string;
+    strCurso:        string;
+    
+    Fecha_inicio:    string;//date
+    Fecha_final:     string;//date
+    hora_inicio:     string;
+    hora_final:      string;
 }
 
 export class HorarioResponse{
@@ -18,8 +29,8 @@ export class HorarioResponse{
     idDocente=0;
     idCurso=0;
 
-    fechaInicio=format(new Date(),'yyyy-MM-dd');
-    fechaFinal=format(new Date(),'yyyy-MM-dd');
-    horaInicio='';
-    horaFina='';
+    Fecha_inicio=format(new Date(),'yyyy-MM-dd');
+    Fecha_final=format(new Date(),'yyyy-MM-dd');
+    hora_inicio='';
+    hora_final='';
 }

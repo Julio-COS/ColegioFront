@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadHorarioComponent } from './read-horario.component';
+import { ReadMVacanciaComponent } from './read-mvacancia.component';
 
-describe('ReadHorarioComponent', () => {
-  let component: ReadHorarioComponent;
-  let fixture: ComponentFixture<ReadHorarioComponent>;
+describe('ReadMVacanciaComponent', () => {
+  let component: ReadMVacanciaComponent;
+  let fixture: ComponentFixture<ReadMVacanciaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReadHorarioComponent]
+      declarations: [ReadMVacanciaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReadHorarioComponent);
+    fixture = TestBed.createComponent(ReadMVacanciaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

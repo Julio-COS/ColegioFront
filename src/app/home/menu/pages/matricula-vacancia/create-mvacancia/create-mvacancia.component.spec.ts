@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateHorarioComponent } from './create-horario.component';
+import { CreateMVacanciaComponent } from './create-mvacancia.component';
 
-describe('CreateHorarioComponent', () => {
-  let component: CreateHorarioComponent;
-  let fixture: ComponentFixture<CreateHorarioComponent>;
+describe('CreateMVacanciaComponent', () => {
+  let component: CreateMVacanciaComponent;
+  let fixture: ComponentFixture<CreateMVacanciaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CreateHorarioComponent]
+      declarations: [CreateMVacanciaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CreateHorarioComponent);
+    fixture = TestBed.createComponent(CreateMVacanciaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
