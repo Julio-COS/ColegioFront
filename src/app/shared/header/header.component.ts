@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  activate:boolean=true;
 
+  @Output() showNavigate: EventEmitter<any> = new EventEmitter<any>();
+
+  actionShowNavigate(){
+    this.activate= !this.activate
+    this.showNavigate.emit(this.activate);
+  }
 }

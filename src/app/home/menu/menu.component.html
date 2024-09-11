@@ -1,14 +1,15 @@
 <div class="h-full w-full">
-    <app-header></app-header>
-
+    <app-header (showNavigate)='activate = $event'></app-header>
+    
     <div class="contenido flex relative w-full">
-        <div class="absolute w-2/12 z-40 h-full px-3 py-4 overflow-y-auto">
-            <div class="bg-blue-100 rounded-lg p-3 h-full">
+
+        <div class="absolute w-2/12 z-40 h-full px-3 py-4 overflow-y-auto" *ngIf="activate">
+            <div class="bg-blue-100 rounded-lg p-3 h-full" >
                 <app-navigation></app-navigation>
             </div>
         </div>
         
-        <div class="p-4 w-10/12 absolute right-0 h-full paddi">
+        <div class="p-4 w-10/12 absolute right-0 h-full" [ngClass]="{ 'w-full': !activate, 'w-10/12': activate }">
             <div class="bg-blue-50 rounded-lg p-3 h-full">
                 <router-outlet></router-outlet>
             </div>
