@@ -17,7 +17,7 @@ export class ReadAlumnoComponent {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getAlumno().subscribe(data=>{
+    this.connectionService.getAlumnos().subscribe(data=>{
       this.dataSource=data;
     })
   }

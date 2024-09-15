@@ -13,9 +13,10 @@ export interface Horario{
 }
 
 export interface HorarioInfo{
-    strAula:         string;
-    strDocente:      string;
-    strCurso:        string;
+    idHorario:          number;
+    nombreAula:         string;
+    nombreDocente:      string;
+    nombreCurso:        string;
     
     Fecha_inicio:    string;//date
     Fecha_final:     string;//date
@@ -28,6 +29,18 @@ export class HorarioResponse{
     idAula=0;
     idDocente=0;
     idCurso=0;
+
+    Fecha_inicio=format(new Date(),'yyyy-MM-dd');
+    Fecha_final=format(new Date(),'yyyy-MM-dd');
+    hora_inicio='';
+    hora_final='';
+}
+
+export class HorarioInfoResponse{
+    idHorario=0;
+    nombreAula='';
+    nombreDocente='';
+    nombreCurso='';
 
     Fecha_inicio=format(new Date(),'yyyy-MM-dd');
     Fecha_final=format(new Date(),'yyyy-MM-dd');

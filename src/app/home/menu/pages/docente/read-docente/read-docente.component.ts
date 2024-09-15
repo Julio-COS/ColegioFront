@@ -17,7 +17,7 @@ export class ReadDocenteComponent {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getDocente().subscribe(data=>{
+    this.connectionService.getDocentes().subscribe(data=>{
       this.dataSource=data;
     })
   }

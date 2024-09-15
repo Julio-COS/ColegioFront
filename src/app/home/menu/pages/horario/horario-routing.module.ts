@@ -7,7 +7,7 @@ import { ReadHorarioComponent } from './read-horario/read-horario.component';
 const routes: Routes = [
   {path:'',component:ReadHorarioComponent},
   {path:'create',component:CreateHorarioComponent},
-  {path:'update:id',component:UpdateHorarioComponent},
+  {path:'update/:id',component:UpdateHorarioComponent},
 ];
 
 @NgModule({

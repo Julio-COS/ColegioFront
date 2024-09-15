@@ -17,7 +17,7 @@ export class ReadMatriculaComponent {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getMatricula().subscribe(data=>{
+    this.connectionService.getMatriculas().subscribe(data=>{
       this.dataSource=data;
     })
   }

@@ -7,7 +7,7 @@ import { UpdateAulaComponent } from './update-aula/update-aula.component';
 const routes: Routes = [
   {path:'',component:ReadAulaComponent},
   {path:'create',component:CreateAulaComponent},
-  {path:'update:id',component:UpdateAulaComponent},
+  {path:'update/:id',component:UpdateAulaComponent},
 ];
 
 @NgModule({

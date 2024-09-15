@@ -17,7 +17,7 @@ export class ReadAulaComponent implements OnInit {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getAula().subscribe(data=>{
+    this.connectionService.getAulas().subscribe(data=>{
       this.dataSource=data;
     })
   }

@@ -7,7 +7,7 @@ import { UpdateMVacanciaComponent } from './update-mvacancia/update-mvacancia.co
 const routes: Routes = [
   {path:'',component:ReadMVacanciaComponent},
   {path:'create',component:CreateMVacanciaComponent},
-  {path:'update:id',component:UpdateMVacanciaComponent},
+  {path:'update/:id',component:UpdateMVacanciaComponent},
 ];
 
 @NgModule({

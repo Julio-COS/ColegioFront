@@ -224,6 +224,17 @@ textarea {
   /* 2 */
   padding: 0;
   /* 3 */
+  border-width: 1px; 
+  border: none;
+  padding:10px 20px;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+button:hover{
+  opacity: 90%;
 }
 
 /*

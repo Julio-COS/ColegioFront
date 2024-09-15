@@ -11,3 +11,17 @@ export class MatriculaVacanciaResponse{
     disponibilidadActual=0;
     disponibilidadTotal=0;
 }
+
+export interface MatriculaVacanciaInfo{
+    idMVacancia:                number;
+    nombreAula:                 string;
+    disponibilidadActual:       number;
+    disponibilidadTotal:        number;
+}
+
+export class MatriculaVacanciaInfoResponse{
+    idMVacancia=0;
+    nombreAula='';
+    disponibilidadActual=0;
+    disponibilidadTotal=0;
+}

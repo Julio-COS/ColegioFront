@@ -2,13 +2,13 @@ import { AlumnoResponse } from "./Alumno";
 import { AulaResponse } from "./Aula";
 import { CursoResponse } from "./Curso";
 import { DocenteResponse } from "./Docente";
-import { HorarioResponse } from "./Horario";
+import { HorarioInfoResponse } from "./Horario";
 import { MatriculaResponse } from "./Matricula";
-import { MatriculaVacanciaResponse } from "./MatriculaVacancia";
+import { MatriculaVacanciaInfoResponse } from "./MatriculaVacancia";
 
 export interface Accion<T=any>{
-    accion:string;
-    fila?: T;
+    accion:string; //editar-eliminar
+    fila?: T; //registro
 }
 
 export const getEntityPropiedades=(entidad:string):Array<any> =>{
@@ -21,16 +21,15 @@ export const getEntityPropiedades=(entidad:string):Array<any> =>{
         case 'Curso':
             clase = new CursoResponse(); break;
         case 'Horario':
-            clase = new HorarioResponse(); break;
+            clase = new HorarioInfoResponse(); break;
         case 'Docente':
             clase = new DocenteResponse(); break;
-
         case 'Alumno':
             clase = new AlumnoResponse(); break; 
         case 'Matricula':
             clase = new MatriculaResponse(); break; 
         case 'MatriculaVacancia':
-            clase = new MatriculaVacanciaResponse(); break; 
+            clase = new MatriculaVacanciaInfoResponse(); break; 
         /* case '':
             clase = new ; break; */
     }

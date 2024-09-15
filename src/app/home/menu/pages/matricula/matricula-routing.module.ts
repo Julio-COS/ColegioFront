@@ -7,7 +7,7 @@ import { UpdateMatriculaComponent } from './update-matricula/update-matricula.co
 const routes: Routes = [
   {path:'',component:ReadMatriculaComponent},
   {path:'create',component:CreateMatriculaComponent},
-  {path:'update:id',component:UpdateMatriculaComponent},
+  {path:'update/:id',component:UpdateMatriculaComponent},
 ];
 
 @NgModule({

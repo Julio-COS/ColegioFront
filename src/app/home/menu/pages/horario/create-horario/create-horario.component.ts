@@ -14,5 +14,6 @@ export class CreateHorarioComponent {
 
   addData(){
     this.connectionService.postHorario(this.data).subscribe();
+    this.data=new HorarioResponse();
   }
 }

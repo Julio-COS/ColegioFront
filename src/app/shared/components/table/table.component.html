@@ -16,8 +16,8 @@
                     {{data[nombre]}}
                 </td>
                 <td>
-                    <a (click)="onAction('Editar',data)">Edit</a>
-                    <a (click)="onAction('Eliminar',data)">Delete</a>
+                    <button class="bg-green-400" (click)="onAction('Editar',data)">Edit</button>
+                    <button class="bg-red-400"  (click)="onAction('Eliminar',data)">Delete</button>
                 </td>
 
             </tr>

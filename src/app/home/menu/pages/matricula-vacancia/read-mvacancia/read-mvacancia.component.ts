@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatriculaVacancia } from '../../../../../interface/MatriculaVacancia';
+import { MatriculaVacancia, MatriculaVacanciaInfo } from '../../../../../interface/MatriculaVacancia';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 
@@ -9,7 +9,7 @@ import { getEntityPropiedades } from '../../../../../interface/actionTableColumn
   styleUrl: './read-mvacancia.component.css'
 })
 export class ReadMVacanciaComponent {
-  dataSource:MatriculaVacancia[]=[];
+  dataSource:MatriculaVacanciaInfo[]=[];
   columnas:string[]=[];
   title:string="MatriculaVacancia";
 
@@ -17,7 +17,7 @@ export class ReadMVacanciaComponent {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.connectionService.getMatriculaVacancia().subscribe(data=>{
+    this.connectionService.getMatriculaVacancias().subscribe(data=>{
       this.dataSource=data;
     })
   }

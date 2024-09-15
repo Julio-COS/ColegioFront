@@ -7,7 +7,7 @@ import { UpdateDocenteComponent } from './update-docente/update-docente.componen
 const routes: Routes = [
   {path:'',component:ReadDocenteComponent},
   {path:'create',component:CreateDocenteComponent},
-  {path:'update:id',component:UpdateDocenteComponent},
+  {path:'update/:id',component:UpdateDocenteComponent},
 ];
 
 @NgModule({
