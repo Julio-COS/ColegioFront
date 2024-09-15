@@ -36,7 +36,7 @@ export class ConnectionService {
   deleteAula(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEaula/${id}`);
   }
-  put(data:Aula): Observable<successResponse>{
+  putAula(data:Aula): Observable<successResponse>{
     return this.http.put<successResponse>(this.apiUrl + `PUTaula/${data.idAula}`,data);
   }
 

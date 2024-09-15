@@ -229,8 +229,10 @@ textarea {
   padding:10px 20px;
   color: white;
   border-radius: 8px;
-  font-weight: bold;
   margin: 10px;
+}
+button{
+  font-weight: bold;
 }
 
 button:hover{

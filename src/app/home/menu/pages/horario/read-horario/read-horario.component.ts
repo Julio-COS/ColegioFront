@@ -36,6 +36,7 @@ export class ReadHorarioComponent {
     this.router.navigate([this.router.url+'/update', data.idHorario]);
   }
   delete(id:string){
-    console.log('delete',id);
+    this.connectionService.deleteHorario(id).subscribe();
+    location.reload()
   }
 }
