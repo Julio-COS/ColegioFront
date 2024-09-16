@@ -15,8 +15,11 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Estudiante
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idEstudiante" name="idDocente">
+                <select [(ngModel)]="data.idEstudiante" name="idEstudiante" id="buscador"
+                class="form-control" required>
+                    <option value="0">Seleccionar</option>
+                    <option *ngFor="let obj of dataEstudiante;let i =index" [value]="obj.idEstudiante">{{obj.nombres}} {{obj.apePaterno}} {{obj.apeMaterno}}</option>
+                </select>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -48,3 +51,5 @@
         </div>
     </div>
 </form>
+
+{{data | json}}

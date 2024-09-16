@@ -13,7 +13,7 @@ import { Alumno, AlumnoResponse } from '../../../../../interface/Alumno';
 export class UpdateMatriculaComponent implements OnInit {
   data:Matricula=new MatriculaResponse();
   dataMatricula:MatriculaVacancia=new MatriculaVacanciaResponse();
-  dataEstudiante:Alumno= new AlumnoResponse();
+  dataEstudiante:Alumno[]=[];
   id:string='';
 
   constructor(private connectionService:ConnectionService, private router: Router){}
@@ -23,7 +23,7 @@ export class UpdateMatriculaComponent implements OnInit {
     this.connectionService.getMatricula(this.id).subscribe(data=>{
       this.data=data;
       this.connectionService.getMatriculaVacancia(this.data.idMVacancia.toString()).subscribe(data=>{this.dataMatricula=data});
-      this.connectionService.getAlumno(this.data.idEstudiante.toString()).subscribe(data=>{this.dataEstudiante=data});
+      this.connectionService.getAlumnos().subscribe(data=>{this.dataEstudiante=data});
     });
   }
 

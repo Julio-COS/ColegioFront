@@ -227,14 +227,17 @@ textarea {
   border-width: 1px; 
   border: none;
   padding:10px 20px;
-  color: white;
   border-radius: 8px;
   margin: 10px;
 }
 button{
+  color: white;
   font-weight: bold;
 }
 
+select{
+  color: black;
+}
 button:hover{
   opacity: 90%;
 }
