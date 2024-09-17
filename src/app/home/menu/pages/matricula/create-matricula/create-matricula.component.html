@@ -8,15 +8,23 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Matricula Vacancia
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idMVacancia" name="idAula">
+                <select2 
+                    [data]="opciones1"
+                    [(ngModel)]="selectIdMatricula" name="idMVacancia"
+                    [placeholder]="'Selecciona una Matricula'"
+                    (update)="update1()"
+                ></select2>
             </div>
             <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Estudiante
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idEstudiante" name="idDocente">
+                <select2 
+                    [data]="opciones2"
+                    [(ngModel)]="selectIdAlumno" name="idEstudiante"
+                    [placeholder]="'Selecciona un estudiante'"
+                    (update)="update2()"
+                ></select2>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

@@ -3,7 +3,7 @@ import { AulaResponse } from "./Aula";
 import { CursoResponse } from "./Curso";
 import { DocenteResponse } from "./Docente";
 import { HorarioInfoResponse } from "./Horario";
-import { MatriculaResponse } from "./Matricula";
+import { MatriculaInfoResponse } from "./Matricula";
 import { MatriculaVacanciaInfoResponse } from "./MatriculaVacancia";
 
 export interface Accion<T=any>{
@@ -27,7 +27,7 @@ export const getEntityPropiedades=(entidad:string):Array<any> =>{
         case 'Alumno':
             clase = new AlumnoResponse(); break; 
         case 'Matricula':
-            clase = new MatriculaResponse(); break; 
+            clase = new MatriculaInfoResponse(); break; 
         case 'MatriculaVacancia':
             clase = new MatriculaVacanciaInfoResponse(); break; 
         /* case '':

@@ -21,7 +21,7 @@ export class UpdateCursoComponent implements OnInit{
     });
   }
 
-  update(){
+  updateData(){
     this.connectionService.putCurso(this.data).subscribe();
   }
 

@@ -1,28 +1,33 @@
 
 <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
-    <h1 class="text-gray-500 font-bold text-2xl">Creación Matricula</h1>
+    <h1 class="text-gray-500 font-bold text-2xl">Actualización Matricula</h1>
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
-        <div class="flex flex-row my-2 content-between">
+        <div class="flex flex-row my-2 content-between gap-3">
             <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Matricula Vacancia
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idMVacancia" name="idAula">
+                <select2 
+                    [data]="opciones1"
+                    [(ngModel)]="selectIdMatricula" name="idMVacancia"
+                    [placeholder]="'Selecciona una Matricula'"
+                    (update)="update1()"
+                ></select2>
             </div>
             <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Estudiante
                 </label>
-                <select [(ngModel)]="data.idEstudiante" name="idEstudiante" id="buscador"
-                class="form-control" required>
-                    <option value="0">Seleccionar</option>
-                    <option *ngFor="let obj of dataEstudiante;let i =index" [value]="obj.idEstudiante">{{obj.nombres}} {{obj.apePaterno}} {{obj.apeMaterno}}</option>
-                </select>
+                <select2 
+                    [data]="opciones2"
+                    [(ngModel)]="selectIdAlumno" name="idEstudiante"
+                    [placeholder]="'Selecciona un estudiante'"
+                    (update)="update2()"
+                ></select2>
             </div>
             <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Estado
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
@@ -32,7 +37,7 @@
 
         <div class="flex flex-row my-2 content-between">
             <div class="mr-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
                     Fecha Registro
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
@@ -42,7 +47,7 @@
 
         <div class="grid my-2 gap-3 justify-start">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-                type="button" (click)="update()">Enviar Data
+                type="button" (click)="updateData()">Enviar Data
             </button>
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 routerLink="../..">
@@ -51,5 +56,3 @@
         </div>
     </div>
 </form>
-
-{{data | json}}

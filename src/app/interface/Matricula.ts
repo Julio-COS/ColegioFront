@@ -15,3 +15,20 @@ export class MatriculaResponse{
     fechaRegistro=format(new Date(),'yyyy-MM-dd');
     estado='';
 }
+
+
+export interface MatriculaInfo{
+    idMatricula:        number;
+    Vacancia:           string;
+    Estudiante:          string;
+    fechaRegistro:      string;//date
+    estado:             string;
+}
+
+export class MatriculaInfoResponse{
+    idMatricula=0;
+    Vacancia='';
+    Estudiante='';
+    fechaRegistro=format(new Date(),'yyyy-MM-dd');
+    estado='';
+}

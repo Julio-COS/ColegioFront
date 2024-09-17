@@ -7,6 +7,7 @@ import { CreateHorarioComponent } from './create-horario/create-horario.componen
 import { UpdateHorarioComponent } from './update-horario/update-horario.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Select2Module } from 'ng-select2-component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HorarioRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Select2Module
   ]
 })
 export class HorarioModule { }

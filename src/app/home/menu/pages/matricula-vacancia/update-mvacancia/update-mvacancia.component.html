@@ -8,8 +8,12 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Aula
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.idAula" name="idAula">
+                <select2 
+                    [data]="opciones1"
+                    [(ngModel)]="selectIdAula" name="idAula"
+                    [placeholder]="'Selecciona una Aula'"
+                    (update)="update1()"
+                ></select2>
             </div>
         </div>
 
@@ -32,7 +36,7 @@
 
         <div class="grid my-2 gap-3 justify-start">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-                type="button" (click)="update()">Enviar Data
+                type="button" (click)="updateData()">Enviar Data
             </button>
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 routerLink="../..">

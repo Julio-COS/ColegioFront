@@ -228,7 +228,6 @@ textarea {
   border: none;
   padding:10px 20px;
   border-radius: 8px;
-  margin: 10px;
 }
 button{
   color: white;
@@ -238,6 +237,50 @@ button{
 select{
   color: black;
 }
+
+.select2-container--default .select2-selection--single {
+  @apply shadow appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none;
+}
+
+/* Estilo para la lista desplegable */
+.select2-container--default .select2-results__option {
+  @apply py-2 px-4 text-gray-700;
+}
+
+/* Estilo para la selección activa */
+.select2-container--default .select2-results__option--highlighted {
+  @apply bg-gray-200;
+}
+.selection{
+  outline: none;
+  width: 100%;
+}
+.select2{
+
+}
+.selection.select2-focused{
+  outline: none
+}
+.select2-selection{
+  
+  height: 36px !important;
+}
+.select2-container {
+  min-width: 250px;
+}
+.select2-search--dropdown{
+  width: auto;
+}
+.select2-search__field{
+  outline: none 2px transparent;
+  margin: 0;
+}
+.select2-container--default .select2-selection--single{
+  background: none !important;
+  border: none!important;
+
+}
+
 button:hover{
   opacity: 90%;
 }

@@ -21,7 +21,7 @@ export class UpdateAlumnoComponent {
     });
   }
 
-  update(){
+  updateData(){
     this.connectionService.putAlumno(this.data).subscribe();
   }
 }

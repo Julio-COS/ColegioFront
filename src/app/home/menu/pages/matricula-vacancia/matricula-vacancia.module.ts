@@ -7,6 +7,7 @@ import { UpdateMVacanciaComponent } from './update-mvacancia/update-mvacancia.co
 import { ReadMVacanciaComponent } from './read-mvacancia/read-mvacancia.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
+import { Select2Module } from 'ng-select2-component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModule } from '../../../../shared/shared.module';
     MatriculaVacanciaRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Select2Module
   ]
 })
 export class MatriculaVacanciaModule { }

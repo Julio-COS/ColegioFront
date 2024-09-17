@@ -21,7 +21,7 @@ export class UpdateAulaComponent {
     });
   }
 
-  update(){
+  updateData(){
     this.connectionService.putAula(this.data).subscribe();
   }
 }

@@ -21,7 +21,7 @@ export class UpdateDocenteComponent {
     });
   }
 
-  update(){
+  updateData(){
     this.connectionService.putDocente(this.data).subscribe();
   }
 }
