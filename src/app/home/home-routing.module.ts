@@ -14,6 +14,7 @@ const routes: Routes = [
     children:[
       {path:'alumno',loadChildren: () => import('./menu/pages/alumno/alumno.module').then(m=>m.AlumnoModule)},
       {path:'apoderado',loadChildren: () => import('./menu/pages/apoderado/apoderado.module').then(m=>m.ApoderadoModule)},
+      {path:'relacion-apoderado',loadChildren: () => import('./menu/pages/relacion-apoderado/relacion-apoderado.module').then(m=>m.RelacionApoderadoModule)},
       {path:'aula',loadChildren: () => import('./menu/pages/aula/aula.module').then(m=>m.AulaModule)},
       {path:'curso',loadChildren: () => import('./menu/pages/curso/curso.module').then(m=>m.CursoModule)},
       {path:'docente',loadChildren: () => import('./menu/pages/docente/docente.module').then(m=>m.DocenteModule)},

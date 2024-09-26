@@ -9,6 +9,8 @@ import { Alumno } from '../interface/Alumno';
 import { Matricula } from '../interface/Matricula';
 import { MatriculaVacancia, MatriculaVacanciaInfo } from '../interface/MatriculaVacancia';
 import { successResponse } from '../interface/successResponse';
+import { Apoderado } from '../interface/Apoderado';
+import { RelacionApoderado } from '../interface/RelacionApoderado';
 
 @Injectable({
   providedIn: 'root'
@@ -144,7 +146,38 @@ export class ConnectionService {
   putMatriculaVacancia(data:MatriculaVacancia): Observable<successResponse>{
     return this.http.put<successResponse>(this.apiUrl + `PUTmatriculaVacancia/${data.idMVacancia}`,data);
   }
-
+  //APODERADO
+  getApoderados(): Observable<Apoderado[]>{
+    return this.http.get<Apoderado[]>(this.apiUrl+"GETapoderados");
+  }
+  getApoderado(id:string): Observable<Apoderado>{
+    return this.http.get<Apoderado>(this.apiUrl+`GETapoderado/${id}`);
+  }
+  postApoderado(data:Apoderado): Observable<Apoderado>{
+    return this.http.post<Apoderado>(this.apiUrl+"POSTapoderado",data);
+  } 
+  deleteApoderado(id:string):Observable<successResponse>{
+    return this.http.delete<successResponse>(this.apiUrl+`DELETEapoderado/${id}`);
+  }
+  putApoderado(data:Apoderado): Observable<successResponse>{
+    return this.http.put<successResponse>(this.apiUrl + `PUTapoderado/${data.idApoderado}`,data);
+  }
+  //RELACION APODERADO
+  getRelacionApoderados(): Observable<RelacionApoderado[]>{
+    return this.http.get<RelacionApoderado[]>(this.apiUrl+"GETrelacionApoderados");
+  }
+  getRelacionApoderado(id:string): Observable<RelacionApoderado>{
+    return this.http.get<RelacionApoderado>(this.apiUrl+`GETrelacionApoderado/${id}`);
+  }
+  postRelacionApoderado(data:RelacionApoderado): Observable<RelacionApoderado>{
+    return this.http.post<RelacionApoderado>(this.apiUrl+"POSTrelacionApoderado",data);
+  } 
+  deleteRelacionApoderado(id:string):Observable<successResponse>{
+    return this.http.delete<successResponse>(this.apiUrl+`DELETErelacionApoderado/${id}`);
+  }
+  putRelacionApoderado(data:RelacionApoderado): Observable<successResponse>{
+    return this.http.put<successResponse>(this.apiUrl + `PUTrelacionApoderado/${data.idRelacionApoderado}`,data);
+  }
     /*     
     gets(): Observable<[]>{
       return this.http.get<[]>(this.apiUrl+"GETs");

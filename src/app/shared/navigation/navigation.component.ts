@@ -11,6 +11,8 @@ export class NavigationComponent {
     {'router':'reportedenotas','name':"Reporte De Notas"}, 
 
     {'router':'apoderado','name':"Apoderado"},
+    {'router':'relacion-apoderado','name':"Relacion Apoderado"},
+
     {'router':'matricula','name':"Matricula"}, 
     {'router':'matricula-vacancia','name':"Matricula Vacancia"},
 
@@ -21,7 +23,4 @@ export class NavigationComponent {
     
     {'router':'pagos','name':"Pagos"}, 
   ]
-
-  
-
 }

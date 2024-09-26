@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     UsuarioComponent,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,

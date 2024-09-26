@@ -1,0 +1,50 @@
+
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
+    <h1 class="text-gray-500 font-bold text-2xl">Creación Relación Apoderado - Estudiante</h1>
+
+    <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Estudiante
+                </label>
+                <select2 
+                    [data]="opciones2"
+                    [(ngModel)]="selectIdAlumno" name="idEstudiante"
+                    [placeholder]="'Selecciona un estudiante'"
+                    (update)="update2()"
+                ></select2>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Apoderado
+                </label>
+                <select2 
+                    [data]="opciones1"
+                    [(ngModel)]="selectIdApoderado" name="idApoderado"
+                    [placeholder]="'Selecciona una Apoderado'"
+                (update)="update1()"
+            ></select2>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Tipo de Relacion
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                [(ngModel)]="data.tipoRelacion" name="tipoRelacion">
+            </div>
+        </div>
+
+
+
+        <div class="grid my-2 gap-3 justify-start">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                type="button" (click)="addData()">Enviar Data
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                routerLink="..">
+                Regresar
+            </button>
+        </div>
+    </div>
+</form>

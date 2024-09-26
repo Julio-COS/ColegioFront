@@ -5,6 +5,8 @@ import { DocenteResponse } from "./Docente";
 import { HorarioInfoResponse } from "./Horario";
 import { MatriculaInfoResponse } from "./Matricula";
 import { MatriculaVacanciaInfoResponse } from "./MatriculaVacancia";
+import { ApoderadoResponse } from "./Apoderado";
+import { RelacionApoderadoInfoResponse } from "./RelacionApoderado";
 
 export interface Accion<T=any>{
     accion:string; //editar-eliminar
@@ -30,6 +32,10 @@ export const getEntityPropiedades=(entidad:string):Array<any> =>{
             clase = new MatriculaInfoResponse(); break; 
         case 'MatriculaVacancia':
             clase = new MatriculaVacanciaInfoResponse(); break; 
+        case 'Apoderado':
+            clase = new ApoderadoResponse(); break; 
+        case 'Relacion Apoderado':
+            clase = new RelacionApoderadoInfoResponse(); break; 
         /* case '':
             clase = new ; break; */
     }

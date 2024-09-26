@@ -8,7 +8,7 @@ export interface Apoderado{
     direccion:      string;
 }
 
-export class ApoderadoRespons{
+export class ApoderadoResponse{
     idApoderado=0;
     nombres='';
     apellidoP='';
