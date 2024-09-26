@@ -7,7 +7,7 @@ import { CreateRelacionApoderadoComponent } from './create-relacion-apoderado/cr
 import { ReadRelacionApoderadoComponent } from './read-relacion-apoderado/read-relacion-apoderado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
-import { Select2Module } from 'ng-select2-component';
+
 
 
 @NgModule({
@@ -21,8 +21,7 @@ import { Select2Module } from 'ng-select2-component';
     RelacionApoderadoRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
-    Select2Module
+    SharedModule
   ]
 })
 export class RelacionApoderadoModule { }

@@ -8,23 +8,27 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Estudiante
                 </label>
-                <select2 
-                    [data]="opciones2"
-                    [(ngModel)]="selectIdAlumno" name="idEstudiante"
-                    [placeholder]="'Selecciona un estudiante'"
-                    (update)="update2()"
-            ></select2>
+                <app-select2-generico
+                    *ngIf="dataEstudiante.length > 0"
+                    [data]="dataEstudiante"
+                    [idField]="'idEstudiante'"
+                    [labelFields]="['nombres', 'apePaterno', 'apeMaterno']"
+                    placeholder="Selecciona un estudiante"
+                    (itemSeleccionado)="handleAlumnoSeleccionado($event)">
+                </app-select2-generico>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Apoderado
                 </label>
-                <select2 
-                    [data]="opciones1"
-                    [(ngModel)]="selectIdApoderado" name="idApoderado"
-                    [placeholder]="'Selecciona una Apoderado'"
-                (update)="update1()"
-            ></select2>
+                <app-select2-generico
+                    *ngIf="dataApoderado.length > 0"
+                    [data]="dataApoderado"
+                    [idField]="'idApoderado'"
+                    [labelFields]="['nombres', 'apellidoP', 'apellidoM']"
+                    placeholder="Selecciona un estudiante"
+                    (itemSeleccionado)="handleAlumnoSeleccionado($event)">
+                </app-select2-generico>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

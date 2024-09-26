@@ -8,12 +8,14 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Aula
                 </label>
-                <select2 
-                    [data]="opciones1"
-                    [(ngModel)]="selectIdAula" name="idAula"
-                    [placeholder]="'Selecciona una Aula'"
-                    (update)="update1()"
-                ></select2>
+                <app-select2-generico
+                    *ngIf="dataAula.length > 0"
+                    [data]="dataAula"
+                    [idField]="'idAula'"
+                    [labelFields]="['nivel', 'gradoActual', 'seccion']"
+                    placeholder="Selecciona un estudiante"
+                    (itemSeleccionado)="handleAulaSeleccionado($event)">
+                </app-select2-generico>
             </div>
         </div>
 

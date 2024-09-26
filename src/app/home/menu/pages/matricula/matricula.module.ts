@@ -7,7 +7,7 @@ import { CreateMatriculaComponent } from './create-matricula/create-matricula.co
 import { UpdateMatriculaComponent } from './update-matricula/update-matricula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
-import { Select2Module } from 'ng-select2-component';
+
 
 
 @NgModule({
@@ -22,7 +22,6 @@ import { Select2Module } from 'ng-select2-component';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    Select2Module
   ]
 })
 export class MatriculaModule { }
