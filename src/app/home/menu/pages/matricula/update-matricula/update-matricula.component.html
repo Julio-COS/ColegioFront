@@ -14,6 +14,7 @@
                     [idField]="'idMVacancia'"
                     [labelFields]="['nombreAula', 'disponibilidadActual','disponibilidadTotal']"
                     placeholder="Selecciona un estudiante"
+                    [(ngModel)]="data.idMVacancia" name="idMVacancia"
                     (itemSeleccionado)="handleMVSeleccionado($event)">
                 </app-select2-generico>
             </div>
@@ -27,6 +28,7 @@
                     [idField]="'idEstudiante'"
                     [labelFields]="['nombres', 'apePaterno', 'apeMaterno']"
                     placeholder="Selecciona un estudiante"
+                    [(ngModel)]="data.idEstudiante" name="idEstudiante"
                     (itemSeleccionado)="handleEstudianteSeleccionado($event)">
                 </app-select2-generico>
             </div>
@@ -60,3 +62,5 @@
         </div>
     </div>
 </form>
+
+{{data | json}}

@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
   listOperacion:any[]=[
-    {'router':'alumno','name':"Alumno"},
     {'router':'reportedenotas','name':"Reporte De Notas"}, 
-
+    {'router':'alumno','name':"Alumno"},
     {'router':'apoderado','name':"Apoderado"},
     {'router':'relacion-apoderado','name':"Relacion Apoderado"},
 

@@ -29,14 +29,17 @@ export class UpdateHorarioComponent implements OnInit{
       this.connectionService.getAulas().subscribe(
         data=>{
           this.dataAula=data
+          this.handleAulaSeleccionado(this.data.idAula);
         });
       this.connectionService.getDocentes().subscribe(
         data=>{
           this.dataDocente=data
+          this.handleDocenteSeleccionado(this.data.idDocente);
         });
       this.connectionService.getCursos().subscribe(
         data=>{
           this.dataCurso=data;
+          this.handleCursoSeleccionado(this.data.idCurso);
       });
     });
   }

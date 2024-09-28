@@ -14,6 +14,7 @@
                     [idField]="'idAula'"
                     [labelFields]="['gradoActual', 'seccion','seccion']"
                     placeholder="Selecciona un estudiante"
+                    [(ngModel)]="data.idAula" name="idAula"
                     (itemSeleccionado)="handleAulaSeleccionado($event)">
                 </app-select2-generico>
             </div>
@@ -27,6 +28,7 @@
                     [idField]="'idDocente'"
                     [labelFields]="['nombre', 'apellidoPaterno','apellidoMaterno']"
                     placeholder="Selecciona un estudiante"
+                    [(ngModel)]="data.idDocente" name="idDocente"
                     (itemSeleccionado)="handleDocenteSeleccionado($event)">
                 </app-select2-generico>
             </div>
@@ -40,6 +42,7 @@
                     [idField]="'idCurso'"
                     [labelFields]="['nombre']"
                     placeholder="Selecciona un estudiante"
+                    [(ngModel)]="data.idCurso" name="idCurso"
                     (itemSeleccionado)="handleCursoSeleccionado($event)">
                 </app-select2-generico>
             </div>

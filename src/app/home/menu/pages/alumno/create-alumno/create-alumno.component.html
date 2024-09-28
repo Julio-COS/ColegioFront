@@ -39,8 +39,11 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Genero
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.genero" name="tipoCargo">
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline peer"
+                 [(ngModel)]="data.genero" name="genero">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                  </select>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

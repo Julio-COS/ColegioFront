@@ -34,8 +34,17 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Tipo de Relacion
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline peer"
                 [(ngModel)]="data.tipoRelacion" name="tipoRelacion">
+                   <option value="Padre">Padre</option>
+                   <option value="Madre">Madre</option>
+                   <option value="Abuelo">Abuelo</option>
+                   <option value="Abuela">Abuela</option>
+                   <option value="Hermano">Hermano</option>
+                   <option value="Hermana">Hermana</option>
+                   <option value="Otro Pariente">Otro Pariente</option>
+                   <option value="PERSONA QUE ASUME ACOGIMIENTO FAMILIAR">PERSONA QUE ASUME ACOGIMIENTO FAMILIAR</option>
+                 </select>
             </div>
         </div>
 

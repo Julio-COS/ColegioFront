@@ -25,6 +25,7 @@ export class UpdateMVacanciaComponent implements OnInit {
       this.connectionService.getAulas().subscribe(
         data=>{
           this.dataAula=data
+          this.handleAulaSeleccionado(this.data.idAula);
         });
     });
   }

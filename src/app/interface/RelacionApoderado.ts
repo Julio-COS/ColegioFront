@@ -24,7 +24,7 @@ export interface RelacionApoderadoInfo{
 
 export class RelacionApoderadoInfoResponse{
     idRelacionApoderado=0;
-    nombreEstudiante='';
-    nombreApoderado='';
+    Estudiante='';
+    Apoderado='';
     tipoRelacion='';
 }

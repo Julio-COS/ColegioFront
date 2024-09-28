@@ -26,11 +26,13 @@ export class UpdateMatriculaComponent implements OnInit {
       this.data=data;
       this.connectionService.getMatriculaVacancias().subscribe(
         data=>{
-          this.dataMatriculaV=data
+          this.dataMatriculaV=data;
+          this.handleMVSeleccionado(this.data.idMVacancia);
         });
       this.connectionService.getAlumnos().subscribe(
         data=>{
           this.dataEstudiante=data;
+          this.handleEstudianteSeleccionado(this.data.idEstudiante);
       });
     });
   }

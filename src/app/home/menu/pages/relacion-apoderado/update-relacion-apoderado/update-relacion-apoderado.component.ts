@@ -30,10 +30,12 @@ export class UpdateRelacionApoderadoComponent {
       this.connectionService.getApoderados().subscribe(
         data=>{
           this.dataApoderado=data;
+          this.handleApoderadoSeleccionado(this.data.idApoderado);
         });
       this.connectionService.getAlumnos().subscribe(
         data=>{
           this.dataEstudiante=data;
+          this.handleAlumnoSeleccionado(this.data.idEstudiante);
       });
     });
   }

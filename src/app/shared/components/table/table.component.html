@@ -1,8 +1,8 @@
 <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-blue-300 dark:bg-gray-100 dark:text-gray-800">
             <tr>
-                <th *ngFor="let columna of columnas" scope="col" class="px-6 py-3">
+                <th *ngFor="let columna of columnas" scope="col" class="px-3 py-3">
                     {{columna}}
                 </th>
                 <th>
@@ -11,13 +11,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of dataSource" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td *ngFor="let nombre of columnas" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{data[nombre]}}
+            <tr *ngFor="let data of dataSource" class="bg-white border-b dark:bg-white dark:border-gray-300">
+                <td *ngFor="let nombre of columnas" scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+                    
+                        <ng-container *ngIf=" nombre === 'fechaNacimiento' || nombre === 'fechaRegistro'" >
+                        {{data[nombre] | date: 'dd/MM/yyyy'}}
+                      </ng-container>
+                      <ng-container *ngIf=" nombre !== 'fechaNacimiento' && nombre !== 'fechaRegistro'">
+                        {{data[nombre]}}
+                      </ng-container>
                 </td>
-                <td>
-                    <button class="bg-green-400" (click)="onAction('Editar',data)">Edit</button>
-                    <button class="bg-red-400"  (click)="onAction('Eliminar',data)">Delete</button>
+                <td class="flex">
+                    <img src='assets/svg/edit.svg' (click)="onAction('Editar',data)" class="mr-3 cursor-pointer">
+                    <img src='assets/svg/delete.svg' (click)="onAction('Eliminar',data)" class="cursor-pointer">
                 </td>
 
             </tr>

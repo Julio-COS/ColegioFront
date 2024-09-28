@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,18 +17,21 @@ import { Select2Module } from 'ng-select2-component';
     FooterComponent,
     NavigationComponent,
     TableComponent,
-    Select2GenericoComponent
+    Select2GenericoComponent,
+    
   ],
   imports: [
     CommonModule,
     RouterLink,
-    Select2Module
+    Select2Module,
+    RouterLinkActive
   ],exports:[
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
     TableComponent,
-    Select2GenericoComponent
+    Select2GenericoComponent,
+
   ]
 })
 export class SharedModule { }

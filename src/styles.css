@@ -236,6 +236,15 @@ button{
 
 select{
   color: black;
+  -webkit-appearance: none;
+  -moz-appearance: none;   
+  appearance: none;       
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="gray" viewBox="0 0 16 16"><path d="M4.5 8l4 4 4-4H4.5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 15px 15px; 
+  width: 110% !important;
+  
 }
 
 .select2-container--default .select2-selection--single {
