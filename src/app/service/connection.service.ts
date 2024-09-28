@@ -21,8 +21,8 @@ export class ConnectionService {
   constructor(private http: HttpClient) { }
 
   
-  getData(consulta:string): Observable<any> {
-    return this.http.get<any>(this.apiUrl+consulta);
+  getData(): Observable<any> {
+    return this.http.get<any>(this.apiUrl+"GETusuario");
   }
   
   //AULA

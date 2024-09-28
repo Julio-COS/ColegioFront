@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectionService } from '../../service/connection.service';
+import { User } from '../../interface/user';
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -7,14 +10,30 @@ import { ConnectionService } from '../../service/connection.service';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit{
-  usuarios:any=[];
-  tabla:string="GETusuario"
 
-  constructor(private apiConnection:ConnectionService){}
+  usuario: string = '';
+  password: string = '';
+
+  constructor(
+
+    private authService: AuthService,
+    private router: Router
+  ){ }
 
   ngOnInit(): void {
-    this.apiConnection.getData(this.tabla).subscribe(data => {
-      this.usuarios = data;
+
+  }
+
+login() {
+  this.authService
+  .login(this.usuario, this.password)
+  .subscribe(isAuthenticated => {
+    if (isAuthenticated) {
+      alert('Login exitoso');
+      this.router.navigate(['menu'])
+    } else {
+      alert('Credenciales incorrectas');
+    }
     });
   }
 }

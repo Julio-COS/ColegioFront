@@ -7,9 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path:'',component:UsuarioComponent,
-    canActivate:[permissionsGuard]
-  },
+  {path:'',component:UsuarioComponent},
   {path:'menu',component:MenuComponent,
     children:[
       {path:'alumno',loadChildren: () => import('./menu/pages/alumno/alumno.module').then(m=>m.AlumnoModule)},
@@ -23,7 +21,7 @@ const routes: Routes = [
       {path:'matricula-vacancia',loadChildren: () => import('./menu/pages/matricula-vacancia/matricula-vacancia.module').then(m=>m.MatriculaVacanciaModule)},
       {path:'pagos',loadChildren: () => import('./menu/pages/pagos/pagos.module').then(m=>m.PagosModule)},
       {path:'reportedenotas',loadChildren: () => import('./menu/pages/reporte-de-notas/reporte-de-notas.module').then(m=>m.ReporteDeNotasModule)},
-    ]
+    ],canActivate:[permissionsGuard]
   },
   {path:'**', component:PageNotFoundComponent}
 

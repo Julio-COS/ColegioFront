@@ -6,6 +6,7 @@ import { SharedModule } from "../shared/shared.module";
 import { UsuarioComponent } from './usuario/usuario.component';
 import { MenuComponent } from './menu/menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    FormsModule
   ]
 })
 export class HomeModule { }
