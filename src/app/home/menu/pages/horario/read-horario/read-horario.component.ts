@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class ReadHorarioComponent {
   dataSource:HorarioInfo[]=[];
   columnas:string[]=[];
+  acciones:string[]=[];
   title:string="Horario";
 
   constructor(private connectionService:ConnectionService, private router:Router){}
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
+    this.acciones = ['Editar', 'Eliminar'];
     this.connectionService.getHorarios().subscribe(data=>{
       this.dataSource=data;
     })

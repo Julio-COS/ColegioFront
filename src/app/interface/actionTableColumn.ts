@@ -7,6 +7,8 @@ import { MatriculaInfoResponse } from "./Matricula";
 import { MatriculaVacanciaInfoResponse } from "./MatriculaVacancia";
 import { ApoderadoResponse } from "./Apoderado";
 import { RelacionApoderadoInfoResponse } from "./RelacionApoderado";
+import { PagoResponse } from "./Pago";
+import { ComprobantePagoResponse } from "./ComprobantePago";
 
 export interface Accion<T=any>{
     accion:string; //editar-eliminar
@@ -36,6 +38,10 @@ export const getEntityPropiedades=(entidad:string):Array<any> =>{
             clase = new ApoderadoResponse(); break; 
         case 'Relacion Apoderado':
             clase = new RelacionApoderadoInfoResponse(); break; 
+        case 'Pago':
+            clase = new PagoResponse(); break; 
+        case 'Comprobante Pago':
+            clase = new ComprobantePagoResponse(); break;
         /* case '':
             clase = new ; break; */
     }
@@ -46,3 +52,15 @@ export const getEntityPropiedades=(entidad:string):Array<any> =>{
 
     return resultados;
 }
+
+export const classIcon = (accion: string): string[] => {
+    let clase = '';
+    let src='';
+    switch(accion){
+      case 'Editar': src='assets/svg/edit.svg';clase = 'mr-3 cursor-pointer'; break;
+      case 'Eliminar': src='assets/svg/delete.svg'; clase="mr-3 cursor-pointer"; break; 
+      case 'Pagar': src='assets/svg/pay.svg'; clase="mr-3 cursor-pointer"; break;
+      case 'Imprimir': src='assets/svg/print.svg'; clase="mr-3 cursor-pointer"; break;
+    }
+    return [clase,src];
+  }

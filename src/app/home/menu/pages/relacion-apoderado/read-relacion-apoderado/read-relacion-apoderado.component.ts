@@ -12,6 +12,7 @@ import { Accion, getEntityPropiedades } from '../../../../../interface/actionTab
 export class ReadRelacionApoderadoComponent implements OnInit{
   dataSource:RelacionApoderado[]=[];
   columnas:string[]=[];
+  acciones:string[]=[];
   title:string="Relacion Apoderado";
 
   constructor(
@@ -20,6 +21,7 @@ export class ReadRelacionApoderadoComponent implements OnInit{
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
+    this.acciones = ['Editar', 'Eliminar'];
     this.connectionService.getRelacionApoderados().subscribe(data=>{
       this.dataSource=data;
     })

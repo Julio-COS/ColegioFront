@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class ReadCursoComponent {
   dataSource:Curso[]=[];
   columnas:string[]=[];
+  acciones:string[]=[];
   title:string="Curso";
 
   constructor(private connectionService:ConnectionService, private router:Router){}
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
+    this.acciones = ['Editar', 'Eliminar'];
     this.connectionService.getCursos().subscribe(data=>{
       this.dataSource=data;
     })

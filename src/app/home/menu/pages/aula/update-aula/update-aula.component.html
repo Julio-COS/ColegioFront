@@ -4,14 +4,14 @@
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
         <div class="flex flex-row my-2 content-between">
-            <div class="mr-2">
+            <div class="mr-5">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Nivel
                 </label>
                 <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 [(ngModel)]="data.nivel" name="nivel">
-                    <option value="Padre">Primaria</option>
-                    <option value="Madre">Secundaria</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
                 </select>
             </div>
             <div class="mr-2">
@@ -23,12 +23,21 @@
             </div>
         </div>
 
-        <div class="my-2">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                Grado Actual
-            </label>
-            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Grado Actual
+                </label>
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 [(ngModel)]="data.gradoActual" name="gradoActual">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
         </div>
         <div class="grid my-2 gap-3 justify-start">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 

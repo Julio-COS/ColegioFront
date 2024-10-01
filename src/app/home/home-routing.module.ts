@@ -20,6 +20,7 @@ const routes: Routes = [
       {path:'matricula',loadChildren: () => import('./menu/pages/matricula/matricula.module').then(m=>m.MatriculaModule)},
       {path:'matricula-vacancia',loadChildren: () => import('./menu/pages/matricula-vacancia/matricula-vacancia.module').then(m=>m.MatriculaVacanciaModule)},
       {path:'pagos',loadChildren: () => import('./menu/pages/pagos/pagos.module').then(m=>m.PagosModule)},
+      {path:'comprobante-pago',loadChildren: () => import('./menu/pages/comprobante-pago/comprobante-pago.module').then(m=>m.ComprobantePagoModule)},
       {path:'reportedenotas',loadChildren: () => import('./menu/pages/reporte-de-notas/reporte-de-notas.module').then(m=>m.ReporteDeNotasModule)},
     ],canActivate:[permissionsGuard]
   },

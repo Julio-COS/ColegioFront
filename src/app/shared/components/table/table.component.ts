@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Accion } from '../../../interface/actionTableColumn';
+import { Accion, classIcon } from '../../../interface/actionTableColumn';
 
 @Component({
   selector: 'app-table',
@@ -9,6 +9,7 @@ import { Accion } from '../../../interface/actionTableColumn';
 export class TableComponent {
   dataSource:any=[];
   columnas:string[]=[];
+  acciones:string[]=[];
   title='';
 
   @Input() set titulo(title:any){
@@ -23,9 +24,17 @@ export class TableComponent {
     this.dataSource=data;
   }
 
+  @Input() set accion(data: string[]) {
+    this.acciones = data;
+  }
+
   @Output() action: EventEmitter<Accion> = new EventEmitter();
 
   onAction(accion:string, row?:any){
     this.action.emit({accion:accion,fila:row});
+  }
+
+  getIcon(accion: string): string[] {
+    return classIcon(accion);
   }
 }

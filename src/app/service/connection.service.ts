@@ -11,6 +11,8 @@ import { MatriculaVacancia, MatriculaVacanciaInfo } from '../interface/Matricula
 import { successResponse } from '../interface/successResponse';
 import { Apoderado } from '../interface/Apoderado';
 import { RelacionApoderado } from '../interface/RelacionApoderado';
+import { Pago } from '../interface/Pago';
+import { ComprobantePago } from '../interface/ComprobantePago';
 
 @Injectable({
   providedIn: 'root'
@@ -178,6 +180,41 @@ export class ConnectionService {
   putRelacionApoderado(data:RelacionApoderado): Observable<successResponse>{
     return this.http.put<successResponse>(this.apiUrl + `PUTrelacionApoderado/${data.idRelacionApoderado}`,data);
   }
+
+  //PAGO
+  getPagos(): Observable<Pago[]>{
+    return this.http.get<Pago[]>(this.apiUrl+"GETpagos");
+  }
+  getPago(id:string): Observable<Pago>{
+    return this.http.get<Pago>(this.apiUrl+`GETpago/${id}`);
+  }
+  postPago(data:Pago): Observable<Pago>{
+    return this.http.post<Pago>(this.apiUrl+"POSTpago",data);
+  } 
+  deletePago(id:string):Observable<successResponse>{
+    return this.http.delete<successResponse>(this.apiUrl+`DELETEpago/${id}`);
+  }
+  putPago(data:Pago): Observable<successResponse>{
+    return this.http.put<successResponse>(this.apiUrl + `PUTpago/${data.idPago}`,data);
+  }
+  //RELACION PAGO
+
+  getComprobantePagos(): Observable<ComprobantePago[]>{
+    return this.http.get<[]>(this.apiUrl+"GETcomprobantePagos");
+  }
+  getComprobantePago(id:string): Observable<ComprobantePago>{
+    return this.http.get<ComprobantePago>(this.apiUrl+`GETcomprobantePago/${id}`);
+  }
+  postComprobantePago(data:ComprobantePago): Observable<ComprobantePago>{
+    return this.http.post<ComprobantePago>(this.apiUrl+"POSTcomprobantePago",data);
+  } 
+  deleteComprobantePago(id:string):Observable<successResponse>{
+    return this.http.delete<successResponse>(this.apiUrl+`DELETEcomprobantePago/${id}`);
+  }
+  putComprobantePago(data:ComprobantePago): Observable<successResponse>{
+    return this.http.put<successResponse>(this.apiUrl + `PUTcomprobantePago/${data.idComprobante}`,data);
+  }
+
     /*     
     gets(): Observable<[]>{
       return this.http.get<[]>(this.apiUrl+"GETs");

@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class ReadMVacanciaComponent {
   dataSource:MatriculaVacanciaInfo[]=[];
   columnas:string[]=[];
+  acciones:string[]=[];
   title:string="MatriculaVacancia";
 
   constructor(private connectionService:ConnectionService, private router:Router){}
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
+    this.acciones = ['Editar', 'Eliminar'];
     this.connectionService.getMatriculaVacancias().subscribe(data=>{
       this.dataSource=data;
     })

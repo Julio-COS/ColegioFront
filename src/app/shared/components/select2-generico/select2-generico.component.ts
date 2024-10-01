@@ -19,6 +19,7 @@ export class Select2GenericoComponent<T> implements OnInit{
   @Input() idField: keyof T = '' as keyof T;
   @Input() labelFields: (keyof T)[] = [];
   @Input() placeholder: string = 'Selecciona una opción';
+  @Input() desactivado: boolean=false;
   
   @Output() itemSeleccionado = new EventEmitter<number>();
   

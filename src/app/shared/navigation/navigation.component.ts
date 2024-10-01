@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
   listOperacion:any[]=[
-    {'router':'reportedenotas','name':"Reporte De Notas"}, 
+    /* {'router':'reportedenotas','name':"Reporte De Notas"},  */
     {'router':'alumno','name':"Alumno"},
     {'router':'apoderado','name':"Apoderado"},
     {'router':'relacion-apoderado','name':"Relacion Apoderado"},
@@ -21,5 +21,6 @@ export class NavigationComponent {
     {'router':'horario','name':"Horario"}, 
     
     {'router':'pagos','name':"Pagos"}, 
+    {'router':'comprobante-pago','name':"Comprobante de Pagos"}, 
   ]
 }
