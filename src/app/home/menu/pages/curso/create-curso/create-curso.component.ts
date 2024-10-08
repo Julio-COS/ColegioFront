@@ -10,7 +10,10 @@ import { ConnectionService } from '../../../../../service/connection.service';
 export class CreateCursoComponent {
   data:Curso=new CursoResponse();
 
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   addData(){
     this.connectionService.postCurso(this.data).subscribe();

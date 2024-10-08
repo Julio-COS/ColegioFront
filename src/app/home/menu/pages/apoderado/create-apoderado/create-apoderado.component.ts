@@ -10,7 +10,10 @@ import { ConnectionService } from '../../../../../service/connection.service';
 export class CreateApoderadoComponent {
   data:Apoderado=new ApoderadoResponse();
 
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   addData(){
     this.connectionService.postApoderado(this.data).subscribe();

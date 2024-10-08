@@ -12,24 +12,13 @@ import { Accion } from '../../../../../interface/actionTableColumn';
 export class CreateDocenteComponent {
   data:Docente=new DocenteResponse();
 
-  constructor(private connectionService:ConnectionService, private router:Router){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   addData(){
     this.connectionService.postDocente(this.data).subscribe();
   }
-  onAction(accion:Accion){
-    if(accion.accion == 'Editar'){
-      this.update(accion.fila);
-    } else if(accion.accion=='Eliminar'){
-      this.delete(accion.fila.idDocente);
-    }
-  } 
 
-  update(data:any){
-    this.router.navigate([this.router.url+'/update', data.idDocente]);
-  }
-  delete(id:string){
-    this.connectionService.deleteDocente(id).subscribe();
-    location.reload()
-  }
 }

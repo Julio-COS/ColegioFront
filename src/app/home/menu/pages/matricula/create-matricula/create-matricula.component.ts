@@ -15,7 +15,10 @@ export class CreateMatriculaComponent implements OnInit{
   dataMatriculaV:MatriculaVacanciaInfo[]=[];
   dataEstudiante:Alumno[]=[];
 
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   ngOnInit(): void {
     this.connectionService.getMatriculaVacancias().subscribe(

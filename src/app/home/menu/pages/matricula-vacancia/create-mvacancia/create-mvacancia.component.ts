@@ -13,7 +13,10 @@ export class CreateMVacanciaComponent implements OnInit{
   data:MatriculaVacancia=new MatriculaVacanciaResponse();
   dataAula:Aula[]=[];
 
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   ngOnInit(): void {
     this.connectionService.getAulas().subscribe(

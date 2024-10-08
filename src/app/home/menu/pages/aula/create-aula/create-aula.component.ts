@@ -10,7 +10,10 @@ import { ConnectionService } from '../../../../../service/connection.service';
 export class CreateAulaComponent {
   data:Aula=new AulaResponse();
 
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
 
   addData(){
     this.connectionService.postAula(this.data).subscribe();

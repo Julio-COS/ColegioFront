@@ -18,7 +18,10 @@ export class CreateHorarioComponent implements OnInit{
   dataDocente:Docente[]=[];
   dataCurso:Curso[]=[];
     
-  constructor(private connectionService:ConnectionService){}
+  constructor(
+    private connectionService:ConnectionService,
+    private formBuldier:FormBuilder
+  ){}
   
   ngOnInit(): void {
     this.connectionService.getAulas().subscribe(
