@@ -3,6 +3,7 @@ import { MatriculaVacancia, MatriculaVacanciaInfo } from '../../../../../interfa
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-read-mvacancia',
@@ -36,7 +37,29 @@ export class ReadMVacanciaComponent {
     this.router.navigate([this.router.url+'/update', data.idMVacancia]);
   }
   delete(id:string){
-    this.connectionService.deleteMatriculaVacancia(id).subscribe();
-    location.reload()
+    Swal.fire({
+      title: '¿Estas seguro que deseas eliminar?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `Cancelar`,
+  }).then((result) => {
+      if (result.isConfirmed) {
+        this.connectionService.deleteMatriculaVacancia(id).subscribe(
+              (response) => {
+                  if (response.isSuccess) {
+                      Swal.fire(response.message,'', 'success');
+                      location.reload()
+                      return;
+                  } else {
+                      console.error(response.message);
+                  }
+              },
+              (error) => {
+                  console.error(error);
+              });
+      } else {
+          return;
+      }
+    });
   }
 }

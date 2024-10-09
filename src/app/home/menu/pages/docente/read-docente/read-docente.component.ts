@@ -3,6 +3,7 @@ import { Docente } from '../../../../../interface/Docente';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-read-docente',
@@ -36,7 +37,29 @@ export class ReadDocenteComponent {
     this.router.navigate([this.router.url+'/update', data.idDocente]);
   }
   delete(id:string){
-    this.connectionService.deleteCurso(id).subscribe();
-    location.reload()
+    Swal.fire({
+      title: '¿Estas seguro que deseas eliminar?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `Cancelar`,
+  }).then((result) => {
+      if (result.isConfirmed) {
+        this.connectionService.deleteDocente(id).subscribe(
+              (response) => {
+                  if (response.isSuccess) {
+                      Swal.fire(response.message,'', 'success');
+                      location.reload()
+                      return;
+                  } else {
+                      console.error(response.message);
+                  }
+              },
+              (error) => {
+                  console.error(error);
+              });
+      } else {
+          return;
+      }
+    });
   }
 }

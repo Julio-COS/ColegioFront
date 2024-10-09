@@ -3,6 +3,7 @@ import { Curso } from '../../../../../interface/Curso';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-read-curso',
@@ -37,8 +38,30 @@ export class ReadCursoComponent {
     this.router.navigate([this.router.url+'/update', data.idCurso]);
   }
   delete(id:string){
-    this.connectionService.deleteCurso(id).subscribe();
-    location.reload()
+    Swal.fire({
+      title: '¿Estas seguro que deseas eliminar?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `Cancelar`,
+  }).then((result) => {
+      if (result.isConfirmed) {
+        this.connectionService.deleteCurso(id).subscribe(
+              (response) => {
+                  if (response.isSuccess) {
+                      Swal.fire(response.message,'', 'success');
+                      location.reload()
+                      return;
+                  } else {
+                      console.error(response.message);
+                  }
+              },
+              (error) => {
+                  console.error(error);
+              });
+      } else {
+          return;
+      }
+    });
   }
 
 }

@@ -3,6 +3,7 @@ import { Pago } from '../../../../../interface/Pago';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Router } from '@angular/router';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-read-pago',
@@ -40,8 +41,30 @@ export class ReadPagoComponent {
     this.router.navigate([this.router.url+'/update', data.idPago]);
   }
   delete(id:string){
-    this.connectionService.deletePago(id).subscribe();
-    location.reload()
+    Swal.fire({
+      title: '¿Estas seguro que deseas eliminar?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `Cancelar`,
+  }).then((result) => {
+      if (result.isConfirmed) {
+        this.connectionService.deletePago(id).subscribe(
+              (response) => {
+                  if (response.isSuccess) {
+                      Swal.fire(response.message,'', 'success');
+                      location.reload()
+                      return;
+                  } else {
+                      console.error(response.message);
+                  }
+              },
+              (error) => {
+                  console.error(error);
+              });
+      } else {
+          return;
+      }
+    });
   }
 
   create(id:string){
