@@ -4,6 +4,8 @@ import { ConnectionService } from '../../../../../service/connection.service';
 import { Aula } from '../../../../../interface/Aula';
 import { Docente } from '../../../../../interface/Docente';
 import { Curso } from '../../../../../interface/Curso';
+import { FormBuilder } from '@angular/forms';
+import { ValidacionesService } from '../../../../../service/validaciones.service';
 
 
 @Component({
@@ -20,7 +22,8 @@ export class CreateHorarioComponent implements OnInit{
     
   constructor(
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder
+    private formBuldier:FormBuilder,
+    private validacionService:ValidacionesService
   ){}
   
   ngOnInit(): void {

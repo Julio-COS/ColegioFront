@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Aula, AulaResponse } from '../../../../../interface/Aula';
 import { ConnectionService } from '../../../../../service/connection.service';
+import { ValidacionesService } from '../../../../../service/validaciones.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-aula',
@@ -12,7 +14,8 @@ export class CreateAulaComponent {
 
   constructor(
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder
+    private formBuldier:FormBuilder,
+    private validacionService:ValidacionesService
   ){}
 
   addData(){

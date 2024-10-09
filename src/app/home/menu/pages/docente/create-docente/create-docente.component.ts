@@ -3,6 +3,8 @@ import { Docente, DocenteResponse } from '../../../../../interface/Docente';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Router } from '@angular/router';
 import { Accion } from '../../../../../interface/actionTableColumn';
+import { ValidacionesService } from '../../../../../service/validaciones.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-docente',
@@ -14,7 +16,8 @@ export class CreateDocenteComponent {
 
   constructor(
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder
+    private formBuldier:FormBuilder,
+    private validacionService:ValidacionesService
   ){}
 
   addData(){

@@ -34,8 +34,8 @@ export class ConnectionService {
   getAula(id:string): Observable<Aula>{
     return this.http.get<Aula>(this.apiUrl+`GETaula/${id}`)
   }
-  postAula(data:Aula): Observable<Aula>{
-    return this.http.post<Aula>(this.apiUrl+"POSTaula",data)
+  postAula(data:Aula): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTaula",data)
   }
   deleteAula(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEaula/${id}`);
@@ -51,8 +51,8 @@ export class ConnectionService {
   getCurso(id:string): Observable<Curso>{
     return this.http.get<Curso>(this.apiUrl+`GETcurso/${id}`);
   }
-  postCurso(data:Curso): Observable<Curso>{
-    return this.http.post<Curso>(this.apiUrl+"POSTcurso",data);
+  postCurso(data:Curso): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTcurso",data);
   }
   deleteCurso(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEcurso/${id}`);
@@ -68,8 +68,8 @@ export class ConnectionService {
   getHorario(id:string): Observable<Horario>{
     return this.http.get<Horario>(this.apiUrl+`GEThorario/${id}`);
   }
-  postHorario(data:Horario): Observable<Horario>{
-    return this.http.post<Horario>(this.apiUrl+"POSThorario",data);
+  postHorario(data:Horario): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSThorario",data);
   }
   putHorario(data:Horario): Observable<successResponse>{
     return this.http.put<successResponse>(this.apiUrl + `PUThorario/${data.idHorario}`,data);
@@ -87,8 +87,8 @@ export class ConnectionService {
   getDocente(id:string): Observable<Docente>{
     return this.http.get<Docente>(this.apiUrl+`GETdocente/${id}`);
   }
-  postDocente(data:Docente): Observable<Docente>{
-    return this.http.post<Docente>(this.apiUrl+"POSTdocente",data);
+  postDocente(data:Docente): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTdocente",data);
   }
   deleteDocente(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEdocente/${id}`);
@@ -104,8 +104,8 @@ export class ConnectionService {
   getAlumno(id:string): Observable<Alumno>{
     return this.http.get<Alumno>(this.apiUrl+`GETalumno/${id}`);
   }
-  postAlumno(data:Alumno): Observable<Alumno>{
-    return this.http.post<Alumno>(this.apiUrl+"POSTalumno",data);
+  postAlumno(data:Alumno): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTalumno",data);
   }
   deleteAlumno(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEalumno/${id}`);
@@ -122,8 +122,8 @@ export class ConnectionService {
   getMatricula(id:string): Observable<Matricula>{
     return this.http.get<Matricula>(this.apiUrl+`GETmatricula/${id}`);
   }
-  postMatricula(data:Matricula): Observable<Matricula>{
-    return this.http.post<Matricula>(this.apiUrl+"POSTmatricula",data);
+  postMatricula(data:Matricula): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTmatricula",data);
   }
   deleteMatricula(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEmatricula/${id}`);
@@ -139,8 +139,8 @@ export class ConnectionService {
   getMatriculaVacancia(id:string): Observable<MatriculaVacancia>{
     return this.http.get<MatriculaVacancia>(this.apiUrl+`GETmatriculaVacancia/${id}`);
   }
-  postMatriculaVacancia(data:MatriculaVacancia): Observable<MatriculaVacancia>{
-    return this.http.post<MatriculaVacancia>(this.apiUrl+"POSTmatriculaVacancia",data);
+  postMatriculaVacancia(data:MatriculaVacancia): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTmatriculaVacancia",data);
   }
   deleteMatriculaVacancia(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEmatriculaVacancia/${id}`);
@@ -155,8 +155,8 @@ export class ConnectionService {
   getApoderado(id:string): Observable<Apoderado>{
     return this.http.get<Apoderado>(this.apiUrl+`GETapoderado/${id}`);
   }
-  postApoderado(data:Apoderado): Observable<Apoderado>{
-    return this.http.post<Apoderado>(this.apiUrl+"POSTapoderado",data);
+  postApoderado(data:Apoderado): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTapoderado",data);
   } 
   deleteApoderado(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEapoderado/${id}`);
@@ -171,8 +171,8 @@ export class ConnectionService {
   getRelacionApoderado(id:string): Observable<RelacionApoderado>{
     return this.http.get<RelacionApoderado>(this.apiUrl+`GETrelacionApoderado/${id}`);
   }
-  postRelacionApoderado(data:RelacionApoderado): Observable<RelacionApoderado>{
-    return this.http.post<RelacionApoderado>(this.apiUrl+"POSTrelacionApoderado",data);
+  postRelacionApoderado(data:RelacionApoderado): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTrelacionApoderado",data);
   } 
   deleteRelacionApoderado(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETErelacionApoderado/${id}`);
@@ -188,8 +188,8 @@ export class ConnectionService {
   getPago(id:string): Observable<Pago>{
     return this.http.get<Pago>(this.apiUrl+`GETpago/${id}`);
   }
-  postPago(data:Pago): Observable<Pago>{
-    return this.http.post<Pago>(this.apiUrl+"POSTpago",data);
+  postPago(data:Pago): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTpago",data);
   } 
   deletePago(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEpago/${id}`);
@@ -205,8 +205,8 @@ export class ConnectionService {
   getComprobantePago(id:string): Observable<ComprobantePago>{
     return this.http.get<ComprobantePago>(this.apiUrl+`GETcomprobantePago/${id}`);
   }
-  postComprobantePago(data:ComprobantePago): Observable<ComprobantePago>{
-    return this.http.post<ComprobantePago>(this.apiUrl+"POSTcomprobantePago",data);
+  postComprobantePago(data:ComprobantePago): Observable<successResponse>{
+    return this.http.post<successResponse>(this.apiUrl+"POSTcomprobantePago",data);
   } 
   deleteComprobantePago(id:string):Observable<successResponse>{
     return this.http.delete<successResponse>(this.apiUrl+`DELETEcomprobantePago/${id}`);

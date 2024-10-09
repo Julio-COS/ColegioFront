@@ -1,5 +1,5 @@
 export interface Apoderado{
-    idApoderado:    number;
+    idApoderado?:    number;
     nombres:        string;
     apellidoP:      string;
     apellidoM:      string;

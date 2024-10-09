@@ -3,6 +3,8 @@ import { MatriculaVacancia, MatriculaVacanciaResponse } from '../../../../../int
 import { ConnectionService } from '../../../../../service/connection.service';
 
 import { Aula } from '../../../../../interface/Aula';
+import { FormBuilder } from '@angular/forms';
+import { ValidacionesService } from '../../../../../service/validaciones.service';
 
 @Component({
   selector: 'app-create-mvacancia',
@@ -15,7 +17,8 @@ export class CreateMVacanciaComponent implements OnInit{
 
   constructor(
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder
+    private formBuldier:FormBuilder,
+    private validacionService:ValidacionesService
   ){}
 
   ngOnInit(): void {

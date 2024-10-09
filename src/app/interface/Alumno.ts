@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 export interface Alumno {
-    idEstudiante:       number;
+    idEstudiante?:       number;
     nombres:            string;
     apeMaterno:         string;
     apePaterno:         string;
