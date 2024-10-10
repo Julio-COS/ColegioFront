@@ -215,6 +215,14 @@ export class ConnectionService {
     return this.http.put<successResponse>(this.apiUrl + `PUTcomprobantePago/${data.idComprobante}`,data);
   }
 
+
+  //REPORTE
+    //aula con alumno
+
+  getReporteAula(id:string): Observable<any[]>{
+    return this.http.get<any[]>(this.apiUrl+`GETreporteAula/${id}`);
+  }
+
     /*     
     gets(): Observable<[]>{
       return this.http.get<[]>(this.apiUrl+"GETs");

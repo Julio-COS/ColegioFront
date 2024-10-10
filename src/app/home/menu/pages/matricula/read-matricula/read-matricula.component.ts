@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Matricula } from '../../../../../interface/Matricula';
 import { ConnectionService } from '../../../../../service/connection.service';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './read-matricula.component.html',
   styleUrl: './read-matricula.component.css'
 })
-export class ReadMatriculaComponent {
+export class ReadMatriculaComponent implements OnInit{
   dataSource:Matricula[]=[];
   columnas:string[]=[];
   acciones:string[]=[];

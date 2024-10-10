@@ -4,6 +4,7 @@ import { Aula } from '../../../../../interface/Aula';
 import { Accion, getEntityPropiedades } from '../../../../../interface/actionTableColumn';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { GeneratePDFService } from '../../../../../service/generatePDF.service';
 
 @Component({
   selector: 'app-read-aula',
@@ -16,11 +17,15 @@ export class ReadAulaComponent implements OnInit {
   acciones:string[]=[];
   title:string="Aula";
 
-  constructor(private connectionService:ConnectionService, private router:Router){}
+  constructor(
+    private connectionService:ConnectionService,
+    private router:Router,
+    private pdfService:GeneratePDFService
+  ){}
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.acciones = ['Editar', 'Eliminar'];
+    this.acciones = ['Editar', 'Eliminar', 'Imprimir'];
     this.connectionService.getAulas().subscribe(data=>{
       this.dataSource=data;
     })
@@ -30,6 +35,8 @@ export class ReadAulaComponent implements OnInit {
       this.update(accion.fila);
     } else if(accion.accion=='Eliminar'){
       this.delete(accion.fila.idAula);
+    } else if(accion.accion=='Imprimir'){
+      this.reporteAula(accion.fila.idAula);
     }
   } 
 
@@ -61,5 +68,11 @@ export class ReadAulaComponent implements OnInit {
           return;
       }
     });
+  }
+
+  reporteAula(id:string){
+    this.connectionService.getReporteAula(id).subscribe(data=>{
+      this.pdfService.reportePDF(data)
+    })
   }
 }
