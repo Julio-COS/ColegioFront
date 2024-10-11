@@ -29,7 +29,7 @@
                     [labelFields]="['nombres', 'apellidoP', 'apellidoM']"
                     placeholder="Selecciona un Apoderado"
                     [(ngModel)]="data.idApoderado" name="idApoderado"
-                    (itemSeleccionado)="handleAlumnoSeleccionado($event)">
+                    (itemSeleccionado)="handleApoderadoSeleccionado($event)">
                 </app-select2-generico>
             </div>
             <div class="mr-2">
@@ -57,7 +57,7 @@
                 type="button" (click)="updateData()">Enviar Data
             </button>
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                routerLink="../..">
+                type="button" (click)="regresar()">
                 Regresar
             </button>
         </div>

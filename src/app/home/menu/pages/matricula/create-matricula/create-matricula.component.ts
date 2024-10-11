@@ -6,6 +6,7 @@ import { MatriculaVacanciaInfo } from '../../../../../interface/MatriculaVacanci
 import { Alumno } from '../../../../../interface/Alumno';
 import { FormBuilder } from '@angular/forms';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-matricula',
@@ -20,7 +21,8 @@ export class CreateMatriculaComponent implements OnInit{
   constructor(
     private connectionService:ConnectionService,
     private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService
+    private validacionService:ValidacionesService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class CreateMatriculaComponent implements OnInit{
 
   addData(){
     this.connectionService.postMatricula(this.data).subscribe();
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/matricula`]);
   }
 }

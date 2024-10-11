@@ -24,7 +24,7 @@ export class CreateCursoComponent {
     this.connectionService.postCurso(this.data).subscribe();
   }
   regresar(){
-    this.router.navigate([`/menu/`]);
+    this.router.navigate([`/menu/curso`]);
   }
 
 }

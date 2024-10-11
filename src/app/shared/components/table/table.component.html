@@ -5,7 +5,7 @@
                 <th *ngFor="let columna of columnas" scope="col" class="px-3 py-3">
                     {{columna}}
                 </th>
-                <th>
+                <th *ngIf="acciones.length > 0">
                     Acciones
                 </th>
             </tr>
@@ -21,7 +21,7 @@
                         {{data[nombre]}}
                       </ng-container>
                 </td>
-                <td class="flex">
+                <td *ngIf="acciones.length > 0" class="flex">
                     <a *ngFor="let accion of acciones" class="dropdown-item" (click)="onAction(accion,data)"
                         href="javascript:void(0);"> <img [class]="getIcon(accion)" [src]="getIcon(accion)[1]"/>
                     </a>

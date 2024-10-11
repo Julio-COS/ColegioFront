@@ -12,7 +12,10 @@ export class UpdateAulaComponent {
   data:Aula=new AulaResponse();
   id:string='';
 
-  constructor(private connectionService:ConnectionService, private router: Router){}
+  constructor(
+    private connectionService:ConnectionService,
+    private router: Router
+  ){}
   ngOnInit(): void {
     const urlSegments =this.router.url.split('/')
     this.id=urlSegments[urlSegments.length-1];
@@ -23,5 +26,9 @@ export class UpdateAulaComponent {
 
   updateData(){
     this.connectionService.putAula(this.data).subscribe();
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/aula`]);
   }
 }

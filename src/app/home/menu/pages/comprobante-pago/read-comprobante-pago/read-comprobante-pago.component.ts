@@ -23,7 +23,7 @@ export class ReadComprobantePagoComponent {
 
   ngOnInit(): void {
     this.columnas=getEntityPropiedades(this.title);
-    this.acciones = ['Imprimir'];
+    this.acciones = [];
     this.connectionService.getComprobantePagos().subscribe(data=>{
       this.dataSource=data;
     })

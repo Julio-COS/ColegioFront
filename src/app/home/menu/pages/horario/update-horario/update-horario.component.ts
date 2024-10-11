@@ -20,7 +20,11 @@ export class UpdateHorarioComponent implements OnInit{
   dataDocente:Docente[]=[];
   dataCurso:Curso[]=[];
   
-  constructor(private connectionService:ConnectionService, private router: Router){}
+  constructor(
+    private connectionService:ConnectionService,
+    private router: Router
+  ){}
+
   ngOnInit(): void {
     const urlSegments =this.router.url.split('/')
     this.id=urlSegments[urlSegments.length-1];
@@ -56,5 +60,9 @@ export class UpdateHorarioComponent implements OnInit{
 
   updateData(){
     this.connectionService.putHorario(this.data).subscribe();
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/horario`]);
   }
 }

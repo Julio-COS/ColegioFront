@@ -6,6 +6,7 @@ import { Docente } from '../../../../../interface/Docente';
 import { Curso } from '../../../../../interface/Curso';
 import { FormBuilder } from '@angular/forms';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class CreateHorarioComponent implements OnInit{
   constructor(
     private connectionService:ConnectionService,
     private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService
+    private validacionService:ValidacionesService,
+    private router:Router
   ){}
   
   ngOnInit(): void {
@@ -55,5 +57,9 @@ export class CreateHorarioComponent implements OnInit{
   addData(){
     this.connectionService.postHorario(this.data).subscribe();
     this.data=new HorarioResponse();
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/horario`]);
   }
 }

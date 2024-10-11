@@ -17,11 +17,15 @@ export class CreateDocenteComponent {
   constructor(
     private connectionService:ConnectionService,
     private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService
+    private validacionService:ValidacionesService,
+    private router:Router
   ){}
 
   addData(){
     this.connectionService.postDocente(this.data).subscribe();
   }
 
+  regresar(){
+    this.router.navigate([`/menu/docente`]);
+  }
 }

@@ -25,4 +25,7 @@ export class UpdateCursoComponent implements OnInit{
     this.connectionService.putCurso(this.data).subscribe();
   }
 
+  regresar(){
+    this.router.navigate([`/menu/curso`]);
+  }
 }

@@ -38,4 +38,8 @@ export class UpdateMVacanciaComponent implements OnInit {
     this.connectionService.putMatriculaVacancia(this.data).subscribe();
   }
 
+  regresar(){
+    this.router.navigate([`/menu/matricula-vacancia`]);
+  }
+
 }

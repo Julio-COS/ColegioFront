@@ -72,7 +72,9 @@ export class ReadAulaComponent implements OnInit {
 
   reporteAula(id:string){
     this.connectionService.getReporteAula(id).subscribe(data=>{
-      this.pdfService.reportePDF(data)
+      this.connectionService.getAula(id).subscribe(dataAula=>{
+        this.pdfService.reportePDF(data,dataAula);
+      })
     })
   }
 }

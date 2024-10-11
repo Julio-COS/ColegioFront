@@ -18,7 +18,11 @@ export class UpdateMatriculaComponent implements OnInit {
   dataMatriculaV:MatriculaVacanciaInfo[]=[];
   dataEstudiante:Alumno[]=[];
 
-  constructor(private connectionService:ConnectionService, private router: Router){}
+  constructor(
+    private connectionService:ConnectionService,
+    private router: Router
+  ){}
+
   ngOnInit(): void {
     const urlSegments =this.router.url.split('/')
     this.id=urlSegments[urlSegments.length-1];
@@ -48,5 +52,10 @@ export class UpdateMatriculaComponent implements OnInit {
   updateData(){
     this.connectionService.putMatricula(this.data).subscribe();
   }
+  
+  regresar(){
+    this.router.navigate([`/menu/matricula`]);
+  }
+
 }
 

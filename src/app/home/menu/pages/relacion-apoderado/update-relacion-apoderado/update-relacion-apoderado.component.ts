@@ -52,4 +52,8 @@ export class UpdateRelacionApoderadoComponent {
   updateData(){
     this.connectionService.putRelacionApoderado(this.data).subscribe();
   }
+
+  regresar(){
+    this.router.navigate([`/menu/relacion-apoderado`]);
+  }
 }

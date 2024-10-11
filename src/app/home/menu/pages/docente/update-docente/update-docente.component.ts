@@ -24,4 +24,8 @@ export class UpdateDocenteComponent {
   updateData(){
     this.connectionService.putDocente(this.data).subscribe();
   }
+
+  regresar(){
+    this.router.navigate([`/menu/docente`]);
+  }
 }

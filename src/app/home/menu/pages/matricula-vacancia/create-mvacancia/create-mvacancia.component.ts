@@ -5,6 +5,7 @@ import { ConnectionService } from '../../../../../service/connection.service';
 import { Aula } from '../../../../../interface/Aula';
 import { FormBuilder } from '@angular/forms';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-mvacancia',
@@ -18,7 +19,8 @@ export class CreateMVacanciaComponent implements OnInit{
   constructor(
     private connectionService:ConnectionService,
     private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService
+    private validacionService:ValidacionesService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class CreateMVacanciaComponent implements OnInit{
 
   addData(){
     this.connectionService.postMatriculaVacancia(this.data).subscribe();
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/matricula-vacancia`]);
   }
 }

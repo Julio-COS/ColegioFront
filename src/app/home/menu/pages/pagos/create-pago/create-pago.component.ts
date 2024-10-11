@@ -48,8 +48,13 @@ export class CreatePagoComponent implements OnInit{
 
   detalle(){
     this.dataComprobante.detalles=
-    `Número de Comprobante: ${this.dataComprobante.idComprobante}
+    `
      Fecha de Emisión: ${this.dataComprobante.fechaEmision}
-     Tipo de Pago: ${this.data.tipoPago}`
+     Tipo de Pago: ${this.data.tipoPago}
+    `
+  }
+
+  regresar(){
+    this.router.navigate([`/menu/pagos`]);
   }
 }
