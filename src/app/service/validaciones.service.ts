@@ -8,7 +8,6 @@ export class ValidacionesService {
 
   constructor() { }
 
-
   isCantidadNroDocumento(form: FormGroup, controlName: string, cantidad: number) {
     const control = form.get(controlName);
     if (control && control.value) {
@@ -35,11 +34,6 @@ export class ValidacionesService {
   isRequerido(form: FormGroup, controlName: string) {
     const control = form.get(controlName);
     return control?.errors && control.errors['required'];
-  }
-
-  isEmail(form: FormGroup, controlName: string) {
-    const control = form.get(controlName);
-    return control?.errors && control?.errors['email'];
   }
 
   markAllFieldsAsTouched(form: FormGroup) {

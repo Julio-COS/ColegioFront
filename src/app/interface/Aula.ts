@@ -1,5 +1,5 @@
 export interface Aula{
-    idAula:             number;
+    idAula?:             number;
     nivel:              string;
     seccion:            string;
     gradoActual:        string;
