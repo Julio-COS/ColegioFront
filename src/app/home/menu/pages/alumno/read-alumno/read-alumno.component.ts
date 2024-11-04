@@ -33,7 +33,7 @@ export class ReadAlumnoComponent {
     }
   } 
 
-  update(data:any){
+  update(data:Alumno){
     this.router.navigate([this.router.url+'/update', data.idEstudiante]);
   }
   delete(id:string){

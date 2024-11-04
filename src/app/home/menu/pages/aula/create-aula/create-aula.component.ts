@@ -24,12 +24,9 @@ export class CreateAulaComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuldier.group({
-      nombres: ['', [Validators.required]],
-      apellidoP: ['', [Validators.required]],
-      apellidoM: ['', [Validators.required]],
-      dni: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
-      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]],
-      direccion:['', [Validators.required]]
+      nivel: ['', [Validators.required]],
+      seccion: ['', [Validators.required]],
+      gradoActual: ['', [Validators.required]]
     })
   }
 
@@ -38,9 +35,9 @@ export class CreateAulaComponent implements OnInit{
     if (this.form.valid) {
 
       this.data={
-        nivel:this.form.get('nombres')?.value,
-        seccion:this.form.get('nombres')?.value,
-        gradoActual:this.form.get('nombres')?.value,
+        nivel:this.form.get('nivel')?.value,
+        seccion:this.form.get('seccion')?.value,
+        gradoActual:this.form.get('gradoActual')?.value,
      }
 
     this.connectionService.postAula(this.data).subscribe(

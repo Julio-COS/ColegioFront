@@ -1,4 +1,4 @@
-<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
     <h1 class="text-gray-500 font-bold text-2xl">
         Edición Curso
     </h1>
@@ -10,14 +10,28 @@
                     Nombre
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                    [(ngModel)]="data.nombre" name="nombre">
+                    formControlName="nombre"
+                    [ngClass]="{'is-invalid': isInvalid('nombre')}"
+                    >
+                <div *ngIf="isInvalid('nombre')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('nombre')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Descripción
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.descripcion" name="descripcion">
+                formControlName="descripcion"
+                [ngClass]="{'is-invalid': isInvalid('descripcion')}"
+                >
+                <div *ngIf="isInvalid('descripcion')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('descripcion')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
     </div>

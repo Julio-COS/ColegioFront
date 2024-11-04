@@ -17,14 +17,14 @@ export class CreateAlumnoComponent implements OnInit{
   form!: FormGroup;
 
   constructor(
+    // eslint-disable-next-line no-unused-vars
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService,
-    private router:Router
+    // eslint-disable-next-line no-unused-vars
+    private router: Router
   ){}
 
   ngOnInit(): void {
-    this.form = this.formBuldier.group({
+    this.form = new FormBuilder().group({
       nombres: ['', [Validators.required]],
       apePaterno: ['', [Validators.required]],
       apeMaterno: ['', [Validators.required]],
@@ -72,16 +72,16 @@ export class CreateAlumnoComponent implements OnInit{
         }
       );
     } else {
-      this.validacionService.markAllFieldsAsTouched(this.form);
+      new ValidacionesService().markAllFieldsAsTouched(this.form);
     }
   }
 
   isInvalid(controlName: string): boolean | undefined {
-    return this.validacionService.isInvalid(this.form, controlName);
+    return new ValidacionesService().isInvalid(this.form, controlName);
   }
 
   isRequerido(controlName: string): boolean {
-    return this.validacionService.isRequerido(this.form, controlName);
+    return new ValidacionesService().isRequerido(this.form, controlName);
   }
 
   regresar(){

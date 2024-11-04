@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 export interface Docente{
-    idDocente:              number;
+    idDocente?:              number;
     nombre:                 string;
     apellidoPaterno:        string;
     apellidoMaterno:        string;

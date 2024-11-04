@@ -12,8 +12,7 @@
                    formControlName="nombres" name="nombres"
                    [ngClass]="{'is-invalid': isInvalid('nombres')}"
                    >
-                <div *ngIf="isInvalid('nombres')"
-                class="invalid-feedback">
+                <div *ngIf="isInvalid('nombres')" class="invalid-feedback">
                     <div *ngIf="isRequerido('nombres')">
                         Debe completar el campo*
                     </div>
