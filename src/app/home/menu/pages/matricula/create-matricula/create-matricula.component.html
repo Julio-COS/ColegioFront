@@ -1,5 +1,5 @@
 
-<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
     <h1 class="text-gray-500 font-bold text-2xl">Creación Matricula</h1>
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
@@ -14,8 +14,15 @@
                     [idField]="'idMVacancia'"
                     [labelFields]="['nombreAula', 'disponibilidadActual','disponibilidadTotal']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleMVSeleccionado($event)">
+                    (itemSeleccionado)="handleMVSeleccionado($event)"
+                    formControlName="idMVacancia"
+                    [ngClass]="{'is-invalid': isInvalid('idMVacancia')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idMVacancia')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idMVacancia')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2">
@@ -27,15 +34,29 @@
                     [idField]="'idEstudiante'"
                     [labelFields]="['nombres', 'apePaterno', 'apeMaterno']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleEstudianteSeleccionado($event)">
+                    (itemSeleccionado)="handleEstudianteSeleccionado($event)"
+                    formControlName="idEstudiante"
+                    [ngClass]="{'is-invalid': isInvalid('idEstudiante')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idEstudiante')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idEstudiante')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Estado
                 </label>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.estado" name="idCurso">
+                formControlName="estado"
+                [ngClass]="{'is-invalid': isInvalid('estado')}"
+                >
+                <div *ngIf="isInvalid('estado')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('estado')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -44,8 +65,15 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Fecha Registro
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.fechaRegistro" name="fechaInicio" [disabled]="true">
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="fechaRegistro"
+                [ngClass]="{'is-invalid': isInvalid('fechaRegistro')}"
+                >
+                <div *ngIf="isInvalid('fechaRegistro')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('fechaRegistro')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
 

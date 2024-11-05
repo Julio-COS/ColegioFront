@@ -4,6 +4,7 @@ import { ConnectionService } from '../../../../../service/connection.service';
 import { Alumno } from '../../../../../interface/Alumno';
 import { ComprobantePago, ComprobantePagoResponse } from '../../../../../interface/ComprobantePago';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-pago',
@@ -43,7 +44,25 @@ export class CreatePagoComponent implements OnInit{
     
     this.detalle()
 
-    this.connectionService.postComprobantePago(this.dataComprobante).subscribe();
+    this.connectionService.postComprobantePago(this.dataComprobante).subscribe(
+      (response) => {
+        if (response.isSuccess) {
+          Swal.fire({
+            title: 'Registrando...',
+            allowOutsideClick: false,
+          })
+          Swal.showLoading();
+          Swal.close();
+          Swal.fire('Correcto', 'Actualizado en el sistema correctamente.', 'success');
+          this.regresar();
+        } else {
+          console.error(response.message);
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   detalle(){

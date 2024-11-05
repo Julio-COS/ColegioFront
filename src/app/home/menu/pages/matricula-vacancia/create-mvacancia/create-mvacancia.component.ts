@@ -3,9 +3,10 @@ import { MatriculaVacancia, MatriculaVacanciaResponse } from '../../../../../int
 import { ConnectionService } from '../../../../../service/connection.service';
 
 import { Aula } from '../../../../../interface/Aula';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-mvacancia',
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
 export class CreateMVacanciaComponent implements OnInit{
   data:MatriculaVacancia=new MatriculaVacanciaResponse();
   dataAula:Aula[]=[];
+  form!: FormGroup;
 
   constructor(
     private connectionService:ConnectionService,
@@ -24,6 +26,12 @@ export class CreateMVacanciaComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    this.form = new FormBuilder().group({
+      idAula: ['', [Validators.required]],
+      disponibilidadActual: [{ value: 0, disabled: true }],
+      disponibilidadTotal: ['', [Validators.required, Validators.pattern(/^[0-9]{2}$/)]]
+    })
+
     this.connectionService.getAulas().subscribe(
       data=>{
         this.dataAula=data
@@ -35,7 +43,42 @@ export class CreateMVacanciaComponent implements OnInit{
   }
 
   addData(){
-    this.connectionService.postMatriculaVacancia(this.data).subscribe();
+
+    if (this.form.valid) {
+
+      this.data={
+        idAula: this.form.get('idAula')?.value,
+        disponibilidadActual: this.form.get('disponibilidadActual')?.value,
+        disponibilidadTotal: this.form.get('disponibilidadTotal')?.value,
+      }
+
+
+      this.connectionService.postMatriculaVacancia(this.data).subscribe(
+        (response) => {
+          if (response.isSuccess) {
+            Swal.fire({
+              title: 'Registrando...',
+              allowOutsideClick: false,
+            })
+            Swal.showLoading();
+            Swal.close();
+            Swal.fire('Correcto', 'Registrado en el sistema correctamente.', 'success');
+            this.regresar();
+          } else {console.error(response.message);}
+        },
+        (error) => {console.error(error);}
+      );
+    } else {
+      new ValidacionesService().markAllFieldsAsTouched(this.form);
+    }
+  }
+  
+  isInvalid(controlName: string): boolean | undefined {
+    return new ValidacionesService().isInvalid(this.form, controlName);
+  }
+
+  isRequerido(controlName: string): boolean {
+    return new ValidacionesService().isRequerido(this.form, controlName);
   }
 
   regresar(){

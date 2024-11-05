@@ -57,7 +57,7 @@ export class CreateDocenteComponent {
             })
             Swal.showLoading();
             Swal.close();
-            Swal.fire('Correcto', 'Alumno registrado en el sistema correctamente.', 'success');
+            Swal.fire('Correcto', 'Registrado en el sistema correctamente.', 'success');
             this.regresar();
           } else {console.error(response.message);}
         },

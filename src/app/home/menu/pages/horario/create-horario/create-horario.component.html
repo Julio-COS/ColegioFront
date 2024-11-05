@@ -1,5 +1,5 @@
 
-<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
     <h1 class="text-gray-500 font-bold text-2xl">Creación Horario</h1>
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
@@ -14,8 +14,15 @@
                     [idField]="'idAula'"
                     [labelFields]="['gradoActual', 'seccion','seccion']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleAulaSeleccionado($event)">
+                    (itemSeleccionado)="handleAulaSeleccionado($event)"
+                    formControlName="idAula"
+                    [ngClass]="{'is-invalid': isInvalid('idAula')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idAula')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idAula')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -27,8 +34,15 @@
                     [idField]="'idDocente'"
                     [labelFields]="['nombre', 'apellidoPaterno','apellidoMaterno']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleDocenteSeleccionado($event)">
+                    (itemSeleccionado)="handleDocenteSeleccionado($event)"
+                    formControlName="idDocente"
+                    [ngClass]="{'is-invalid': isInvalid('idDocente')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idDocente')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idDocente')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -40,8 +54,15 @@
                     [idField]="'idCurso'"
                     [labelFields]="['nombre']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleCursoSeleccionado($event)">
+                    (itemSeleccionado)="handleCursoSeleccionado($event)"
+                    formControlName="idCurso"
+                    [ngClass]="{'is-invalid': isInvalid('idCurso')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idCurso')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idCurso')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -50,29 +71,53 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Fecha Inicio
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.Fecha_inicio" name="fechaInicio">
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="Fecha_inicio"
+                [ngClass]="{'is-invalid': isInvalid('Fecha_inicio')}">
+                <div *ngIf="isInvalid('Fecha_inicio')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('Fecha_inicio')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Fecha Final
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.Fecha_final" name="fechaFinal">
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="Fecha_final"
+                [ngClass]="{'is-invalid': isInvalid('Fecha_final')}">
+                <div *ngIf="isInvalid('Fecha_final')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('Fecha_final')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Hora Inicio
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.hora_inicio" name="horaInicio">
+                <input type="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="hora_inicio"
+                [ngClass]="{'is-invalid': isInvalid('hora_inicio')}">
+                <div *ngIf="isInvalid('hora_inicio')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('hora_inicio')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Hora Final
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                [(ngModel)]="data.hora_final" name="horaFinal">
+                <input type="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="hora_final"
+                [ngClass]="{'is-invalid': isInvalid('hora_final')}">
+                <div *ngIf="isInvalid('hora_final')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('hora_final')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
 

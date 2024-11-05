@@ -15,43 +15,26 @@ export interface Accion<T=any>{
     fila?: T; //registro
 }
 
-export const getEntityPropiedades=(entidad:string):Array<any> =>{
-    let resultados:any =[];
-    let clase: any;
-
-    switch(entidad){
-        case 'Aula':
-            clase = new AulaResponse(); break;
-        case 'Curso':
-            clase = new CursoResponse(); break;
-        case 'Horario':
-            clase = new HorarioInfoResponse(); break;
-        case 'Docente':
-            clase = new DocenteResponse(); break;
-        case 'Alumno':
-            clase = new AlumnoResponse(); break; 
-        case 'Matricula':
-            clase = new MatriculaInfoResponse(); break; 
-        case 'MatriculaVacancia':
-            clase = new MatriculaVacanciaInfoResponse(); break; 
-        case 'Apoderado':
-            clase = new ApoderadoResponse(); break; 
-        case 'Relacion Apoderado':
-            clase = new RelacionApoderadoInfoResponse(); break; 
-        case 'Pago':
-            clase = new PagoResponse(); break; 
-        case 'Comprobante Pago':
-            clase = new ComprobantePagoResponse(); break;
-        /* case '':
-            clase = new ; break; */
-    }
-    
-    if(clase){
-        resultados=Object.keys(clase);
-    }
-
-    return resultados;
-}
+export const getEntityPropiedades = (entidad: string): Array<any> => {
+    const entityClassMap: { [key: string]: any } = {
+      'Aula': AulaResponse,
+      'Curso': CursoResponse,
+      'Horario': HorarioInfoResponse,
+      'Docente': DocenteResponse,
+      'Alumno': AlumnoResponse,
+      'Matricula': MatriculaInfoResponse,
+      'MatriculaVacancia': MatriculaVacanciaInfoResponse,
+      'Apoderado': ApoderadoResponse,
+      'Relacion Apoderado': RelacionApoderadoInfoResponse,
+      'Pago': PagoResponse,
+      'Comprobante Pago': ComprobantePagoResponse,
+    };
+  
+    const Clase = entityClassMap[entidad];
+    const claseInstance = Clase ? new Clase() : null;
+  
+    return claseInstance ? Object.keys(claseInstance) : [];
+  };
 
 export const classIcon = (accion: string): string[] => {
     let clase = '';

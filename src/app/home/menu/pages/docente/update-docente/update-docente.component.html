@@ -89,7 +89,7 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Fecha Registros
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 formControlName="fechaRegistro"
                 [ngClass]="{'is-invalid': isInvalid('fechaRegistro')}">
                 <div *ngIf="isInvalid('fechaRegistro')" class="invalid-feedback">

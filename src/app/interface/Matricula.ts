@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 export interface Matricula{
-    idMatricula:        number;
+    idMatricula?:        number;
     idMVacancia:        number;
     idEstudiante:       number;
     fechaRegistro:      string;//date

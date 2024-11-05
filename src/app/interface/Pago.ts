@@ -4,7 +4,7 @@ export interface Pago{
     idComprobante:number;
     monto:number;
     tipoPago:string;
-    estado:string;
+    estado?:string;
 }
 
 

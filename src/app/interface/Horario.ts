@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 export interface Horario{
-    idHorario:      number;
+    idHorario?:      number;
     idAula:         number;
     idDocente:      number;
     idCurso:        number;

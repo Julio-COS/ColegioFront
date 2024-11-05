@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Aula, AulaResponse } from '../../../../../interface/Aula';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-aula',
@@ -44,7 +45,37 @@ export class UpdateAulaComponent implements OnInit{
   }
 
   updateData(){
-    this.connectionService.putAula(this.data).subscribe();
+    if (this.form.valid) {
+
+      this.data={
+        idAula:Number(this.id),
+        nivel: this.form.get('nivel')?.value,
+        seccion: this.form.get('seccion')?.value,
+        gradoActual: this.form.get('gradoActual')?.value,
+     }
+
+      this.connectionService.putAula(this.data).subscribe(
+        (response) => {
+          if (response.isSuccess) {
+            Swal.fire({
+              title: 'Registrando...',
+              allowOutsideClick: false,
+            })
+            Swal.showLoading();
+            Swal.close();
+            Swal.fire('Correcto', 'Actualizado en el sistema correctamente.', 'success');
+            this.regresar();
+          } else {
+            console.error(response.message);
+          }
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      new ValidacionesService().markAllFieldsAsTouched(this.form);
+    }
   }
 
   isInvalid(controlName: string): boolean | undefined {

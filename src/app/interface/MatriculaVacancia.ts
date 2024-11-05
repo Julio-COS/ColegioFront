@@ -1,5 +1,5 @@
 export interface MatriculaVacancia{
-    idMVacancia:                number;
+    idMVacancia?:                number;
     idAula:                     number;
     disponibilidadActual:       number;
     disponibilidadTotal:        number;

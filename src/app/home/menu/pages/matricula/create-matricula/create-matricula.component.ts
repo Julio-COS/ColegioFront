@@ -4,9 +4,11 @@ import { ConnectionService } from '../../../../../service/connection.service';
 
 import { MatriculaVacanciaInfo } from '../../../../../interface/MatriculaVacancia';
 import { Alumno } from '../../../../../interface/Alumno';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidacionesService } from '../../../../../service/validaciones.service';
 import { Router } from '@angular/router';
+import { format } from 'date-fns';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-matricula',
@@ -15,17 +17,24 @@ import { Router } from '@angular/router';
 })
 export class CreateMatriculaComponent implements OnInit{
   data:Matricula=new MatriculaResponse();
+  form!: FormGroup;
   dataMatriculaV:MatriculaVacanciaInfo[]=[];
   dataEstudiante:Alumno[]=[];
 
   constructor(
     private connectionService:ConnectionService,
-    private formBuldier:FormBuilder,
-    private validacionService:ValidacionesService,
     private router:Router
   ){}
 
   ngOnInit(): void {
+
+    this.form = new FormBuilder().group({
+      idMVacancia: ['', [Validators.required]],
+      idEstudiante: ['', [Validators.required]],
+      fechaRegistro: [{ value: format(new Date(),'yyyy-MM-dd'), disabled: true }],
+      estado: ['', [Validators.required]],
+    });
+
     this.connectionService.getMatriculaVacancias().subscribe(
       data=>{
         this.dataMatriculaV=data
@@ -41,10 +50,43 @@ export class CreateMatriculaComponent implements OnInit{
   handleEstudianteSeleccionado(idEstudiante:number){
     this.data.idEstudiante = idEstudiante;
   }
-  
 
   addData(){
-    this.connectionService.postMatricula(this.data).subscribe();
+    if (this.form.valid) {
+
+      this.data={
+        idMVacancia: this.form.get('idMVacancia')?.value,
+        idEstudiante: this.form.get('idEstudiante')?.value,
+        fechaRegistro: this.form.get('fechaRegistro')?.value,
+        estado: this.form.get('estado')?.value,
+      }
+      
+      this.connectionService.postMatricula(this.data).subscribe(
+        (response) => {
+          if (response.isSuccess) {
+            Swal.fire({
+              title: 'Registrando...',
+              allowOutsideClick: false,
+            })
+            Swal.showLoading();
+            Swal.close();
+            Swal.fire('Correcto', 'Alumno registrado en el sistema correctamente.', 'success');
+            this.regresar();
+          } else {console.error(response.message);}
+        },
+        (error) => {console.error(error);}
+      );
+    } else {
+      new ValidacionesService().markAllFieldsAsTouched(this.form);
+    }
+  }
+
+  isInvalid(controlName: string): boolean | undefined {
+    return new ValidacionesService().isInvalid(this.form, controlName);
+  }
+
+  isRequerido(controlName: string): boolean {
+    return new ValidacionesService().isRequerido(this.form, controlName);
   }
 
   regresar(){

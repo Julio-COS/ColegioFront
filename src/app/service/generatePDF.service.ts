@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import jsPDF from 'jspdf';
-import html2Canvas from 'html2canvas';
 import autoTable from 'jspdf-autotable';
 import { Aula } from '../interface/Aula';
 import { Pago } from '../interface/Pago';
@@ -12,7 +11,7 @@ import { Alumno } from '../interface/Alumno';
 
 export class GeneratePDFService{
 
-  comprobantePagoPDF(dataPago: Pago, dataEstudiante:Alumno, fecha:string){
+  comprobantePagoPDF(dataPago: Pago, dataEstudiante:Alumno, fecha:string): void{
     const doc = new jsPDF('p', 'pt', 'a5');
   
     this.encabezado(doc);
