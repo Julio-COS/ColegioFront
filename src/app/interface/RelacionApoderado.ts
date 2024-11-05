@@ -1,5 +1,5 @@
 export interface RelacionApoderado{
-    idRelacionApoderado:    number;
+    idRelacionApoderado?:    number;
     idEstudiante:           number;
     idApoderado:            number;
     tipoRelacion:           string;

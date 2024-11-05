@@ -1,5 +1,5 @@
 
-<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto">
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
     <h1 class="text-gray-500 font-bold text-2xl">Creación Relación Apoderado - Estudiante</h1>
 
     <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
@@ -14,8 +14,15 @@
                     [idField]="'idEstudiante'"
                     [labelFields]="['nombres', 'apePaterno', 'apeMaterno']"
                     placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleAlumnoSeleccionado($event)">
+                    (itemSeleccionado)="handleAlumnoSeleccionado($event)"
+                    formControlName="idEstudiante"
+                    [ngClass]="{'is-invalid': isInvalid('idEstudiante')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idEstudiante')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idEstudiante')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -26,16 +33,25 @@
                     [data]="dataApoderado"
                     [idField]="'idApoderado'"
                     [labelFields]="['nombres', 'apellidoP', 'apellidoM']"
-                    placeholder="Selecciona un estudiante"
-                    (itemSeleccionado)="handleApoderadoSeleccionado($event)">
+                    placeholder="Selecciona un Apoderado"
+                    (itemSeleccionado)="handleApoderadoSeleccionado($event)"
+                    formControlName="idApoderado"
+                    [ngClass]="{'is-invalid': isInvalid('idApoderado')}">
                 </app-select2-generico>
+                <div *ngIf="isInvalid('idApoderado')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idApoderado')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
             <div class="mr-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Tipo de Relacion
                 </label>
                 <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline peer"
-                [(ngModel)]="data.tipoRelacion" name="tipoRelacion">
+                    formControlName="tipoRelacion"
+                    [ngClass]="{'is-invalid': isInvalid('tipoRelacion')}"
+                >
                    <option value="Padre">Padre</option>
                    <option value="Madre">Madre</option>
                    <option value="Abuelo">Abuelo</option>
@@ -45,6 +61,11 @@
                    <option value="Otro Pariente">Otro Pariente</option>
                    <option value="PERSONA QUE ASUME ACOGIMIENTO FAMILIAR">PERSONA QUE ASUME ACOGIMIENTO FAMILIAR</option>
                  </select>
+                 <div *ngIf="isInvalid('tipoRelacion')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('tipoRelacion')">
+                        Debe completar el campo*
+                    </div>
+                </div>
             </div>
         </div>
 
