@@ -1,0 +1,14 @@
+<mat-card class="example">
+    <div class="container">
+        <h4 class="Atitle">
+            Listado Aula
+        </h4>
+        <div style="padding: 10px 0px;">
+            <button class="py-2 px-5 focus:outline-none focus:shadow-outline"
+                routerLink="create" type="button" mat-flat-button>
+                Añadir<i class="fa-solid fa-plus"></i>  
+            </button>
+        </div>
+        <app-table [titulo]="title" [columns]="columnas" [accion]="acciones" [data]="dataSource" (action)="onAction($event)"></app-table>
+    </div>
+</mat-card>

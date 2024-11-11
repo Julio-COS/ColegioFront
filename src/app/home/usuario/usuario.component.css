@@ -1,0 +1,12 @@
+#Cambio{
+    background-image: linear-gradient(to right bottom, rgba(25, 27, 27, 0.822), 
+    rgba(75, 50, 50, 0.247)), url(../../../../public/assets/png/Interior_dos.jpg);
+    /* background-image: url(../../../../public/assets/png/InteriorpnpPin.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.Utitulo{
+    text-align: center;
+    font-size: 30px;
+}

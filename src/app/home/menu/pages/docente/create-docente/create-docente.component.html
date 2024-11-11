@@ -1,0 +1,127 @@
+
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
+    <h4 class="Atitle">Creación Docente</h4>
+
+    <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Nombres
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    formControlName="nombre"
+                    [ngClass]="{'is-invalid': isInvalid('nombre')}">
+                <div *ngIf="isInvalid('nombre')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('nombre')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Apellido paterno
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="apellidoPaterno"
+                [ngClass]="{'is-invalid': isInvalid('apellidoPaterno')}">
+                <div *ngIf="isInvalid('apellidoPaterno')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('apellidoPaterno')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Apellido Materno
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="apellidoMaterno"
+                [ngClass]="{'is-invalid': isInvalid('apellidoMaterno')}">
+                <div *ngIf="isInvalid('apellidoMaterno')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('apellidoMaterno')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Ciudad
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="ciudad"
+                [ngClass]="{'is-invalid': isInvalid('ciudad')}">
+                <div *ngIf="isInvalid('ciudad')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('ciudad')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Tipo Cargo
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="tipoCargo"
+                [ngClass]="{'is-invalid': isInvalid('tipoCargo')}">
+                <div *ngIf="isInvalid('tipoCargo')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('tipoCargo')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    DNI
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="dni"
+                [ngClass]="{'is-invalid': isInvalid('dni')}">
+                <div *ngIf="isInvalid('dni')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('dni')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Fecha Registros
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="fechaRegistro"
+                [ngClass]="{'is-invalid': isInvalid('fechaRegistro')}">
+                <div *ngIf="isInvalid('fechaRegistro')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('fechaRegistro')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="my-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Direccion
+            </label>
+            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            formControlName="direccion"
+            [ngClass]="{'is-invalid': isInvalid('direccion')}" >
+            <div *ngIf="isInvalid('direccion')" class="invalid-feedback">
+                <div *ngIf="isRequerido('direccion')">
+                    Debe completar el campo*
+                </div>
+            </div>
+        </div>  
+
+        <div class="grid my-2 gap-3 justify-start">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline" 
+                type="submit" (click)="addData()" mat-flat-button>Enviar Data<i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline"
+                type="button" (click)="regresar() " mat-flat-button style="background-color: #ef476f;">
+                Regresar<i class="fa-solid fa-circle-arrow-left" ></i>
+            </button>
+        </div>
+    </div>
+</form>

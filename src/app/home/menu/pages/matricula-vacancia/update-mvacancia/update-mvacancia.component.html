@@ -1,0 +1,70 @@
+
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
+    <h4 class="Atitle">Actualizar Vacancia Matricula</h4>
+
+    <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Aula
+                </label>
+                <app-select2-generico
+                    *ngIf="dataAula.length > 0"
+                    [data]="dataAula"
+                    [idField]="'idAula'"
+                    [labelFields]="['nivel', 'gradoActual', 'seccion']"
+                    placeholder="Selecciona un estudiante"
+                    (itemSeleccionado)="handleAulaSeleccionado($event)"
+                    formControlName="idAula"
+                    [ngClass]="{'is-invalid': isInvalid('idAula')}">
+                </app-select2-generico>
+                <div *ngIf="isInvalid('idAula')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('idAula')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Disponibilidad Actual
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    formControlName="disponibilidadActual"
+                    [ngClass]="{'is-invalid': isInvalid('disponibilidadActual')}"
+                >
+                <div *ngIf="isInvalid('disponibilidadActual')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('disponibilidadActual')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Disponibilidad Total
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    formControlName="disponibilidadTotal"
+                    [ngClass]="{'is-invalid': isInvalid('disponibilidadTotal')}"
+                >
+                <div *ngIf="isInvalid('disponibilidadTotal')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('disponibilidadTotal')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid my-2 gap-3 justify-start">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" 
+                type="submit" (click)="updateData()" mat-flat-button  >Enviar Data <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline curvas"
+                type="button" (click)="regresar()" mat-flat-button style="background-color: #ef476f;">
+                Regresar <i class="fa-solid fa-circle-arrow-left" ></i>
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,161 @@
+
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
+    <h4 class="Atitle">Actualizar Alumno</h4>
+
+    <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Nombres
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                   formControlName="nombres" name="nombres"
+                   [ngClass]="{'is-invalid': isInvalid('nombres')}"
+                   >
+                <div *ngIf="isInvalid('nombres')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('nombres')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Apellido paterno
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                   formControlName="apePaterno" name="apePaterno"
+                   [ngClass]="{'is-invalid': isInvalid('apePaterno')}"
+                >
+                <div *ngIf="isInvalid('apePaterno')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('apePaterno')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Apellido Materno
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="apeMaterno" name="apeMaterno"
+               [ngClass]="{'is-invalid': isInvalid('apeMaterno')}"
+               >
+                <div *ngIf="isInvalid('apeMaterno')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('apeMaterno')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    DNI
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="dni" name="dni"
+               [ngClass]="{'is-invalid': isInvalid('dni')}"
+               >
+                <div *ngIf="isInvalid('dni')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('dni')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Genero
+                </label>
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline peer"
+                formControlName="genero" name="genero"
+                [ngClass]="{'is-invalid': isInvalid('genero')}"
+                >
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                  </select>
+                <div *ngIf="isInvalid('genero')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('genero')">
+                        Seleccionar*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Telefono
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="telefono" name="telefono"
+               [ngClass]="{'is-invalid': isInvalid('telefono')}"
+               >
+                <div *ngIf="isInvalid('telefono')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('telefono')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Fecha Registro
+                </label>
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="fechaRegistro" name="fechaRegistro"
+               [ngClass]="{'is-invalid': isInvalid('fechaRegistro')}"
+               >
+                <div *ngIf="isInvalid('fechaRegistro')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('fechaRegistro')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Fecha Nacimiento
+                </label>
+                <input type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="fechaNacimiento" name="fechaNacimiento"
+               [ngClass]="{'is-invalid': isInvalid('fechaNacimiento')}"
+               >
+                <div *ngIf="isInvalid('fechaNacimiento')"
+                class="invalid-feedback">
+                    <div *ngIf="isRequerido('fechaNacimiento')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="my-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Direccion
+            </label>
+            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+               formControlName="direccion" name="direccion"
+               [ngClass]="{'is-invalid': isInvalid('direccion')}"
+               >
+            <div *ngIf="isInvalid('direccion')"
+            class="invalid-feedback">
+                <div *ngIf="isRequerido('direccion')">
+                    Debe completar el campo*
+                </div>
+            </div>
+        </div>  
+
+        <div class="grid my-2 gap-3 justify-start">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline" 
+                type="submit" (click)="updateData()" mat-flat-button  >Enviar Data <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline curvas"
+                type="button" (click)="regresar()" mat-flat-button style="background-color: #ef476f;">
+                Regresar <i class="fa-solid fa-circle-arrow-left" ></i>
+            </button>
+        </div>
+    </div>
+</form>

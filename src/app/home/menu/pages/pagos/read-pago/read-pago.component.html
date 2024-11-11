@@ -1,0 +1,8 @@
+<mat-card class="example">
+    <div class="container">
+        <h4 class="Atitle">
+            Listado Pagos
+        </h4>
+        <app-table [titulo]="title" [columns]="columnas" [accion]="acciones" [data]="dataSource" (action)="onAction($event)"></app-table>
+    </div>
+</mat-card>

@@ -1,0 +1,12 @@
+<div>
+  <ul class="">
+    <li *ngFor="let item of listOperacion">
+      <a class="block  py-2 hover:bg-blue-300 transition-all duration-200"
+          [routerLink]="item.router"
+          routerLinkActive="bg-blue-400 text-white">
+          <i class="fa-solid" [ngClass]="item.icon" style="padding: 0px 10px;"></i>
+        {{ item.name }}
+      </a>
+    </li>
+  </ul>
+</div>

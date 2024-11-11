@@ -1,0 +1,68 @@
+<body>
+    <main>
+        <div class="aling">
+            <button type="button" mat-button (click)="drawer.toggle()" style="color: #fff;">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <h2>IEP PNP PIN BIENVENIDOS</h2>
+            <a href=""><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+        <mat-drawer-container class="example-container" autosize >
+            <mat-drawer #drawer class="example-sidenav" mode="side">
+                <div class="Muser_img" >
+                    <p class="Muser_parrafo"><i class="fa-solid fa-circle-user"></i> User</p>
+                </div>
+                <div class="ho">
+                    <app-navigation></app-navigation>
+                </div>
+                <!-- @if (showFiller) {
+                <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                }
+                <button (click)="showFiller = !showFiller" mat-raised-button color="primary">
+                    <p>
+                        Click
+                    </p>
+                </button> -->
+            </mat-drawer>
+        <!-- dashboard -->
+            <!-- <button type="button" mat-button (click)="drawer.toggle()" color="primary">
+                <i class="fa-solid fa-bars"></i>
+            </button> -->
+            <mat-drawer-content>
+                <!-- <div class="aling">
+                    <button type="button" mat-button (click)="drawer.toggle()" style="color: #fff;">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h2>IEP PNP PIN BIENVENIDOS</h2>
+                    <a href=""><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                </div> -->
+                <div class="container">
+                    <div class="card">
+                        <div class="card-img-overlay">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    <!-- <div class="h-full w-full">
+        <app-header (showNavigate)='activate = $event'></app-header>
+        
+        <div class="contenido flex relative w-full">
+
+            <div class="absolute w-2/12 z-40 h-full px-3 py-4 overflow-y-auto" *ngIf="activate">
+                <div class="bg-blue-100 rounded-lg p-3 h-full" >
+                    <app-navigation></app-navigation>
+                </div>
+            </div>
+            
+            <div class="p-4 w-10/12 absolute right-0 h-full" [ngClass]="{ 'w-full': !activate, 'w-10/12': activate }">
+                <div class="bg-blue-50 rounded-lg p-3 h-full">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    </main>
+    <app-footer></app-footer>
+</body>

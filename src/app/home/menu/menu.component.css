@@ -1,0 +1,76 @@
+main{
+    width: 100%;
+}
+.example-container {
+    width: 0 auto;
+    /* height: 800px; */
+    height: 900px;
+    background-color: #dee2e6;
+    /* padding: 0;
+    margin: 0; */
+}
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.example-sidenav {
+    /* padding: 20px; */
+    background-color: #fff;
+    color: #000;
+}
+.aling{
+    display: flex;
+    justify-content: space-between;
+    background-color: midnightblue;
+}
+.aling button{
+    text-align: center;
+    align-items: center;
+    margin: 6px 0px;
+    font-size: 20px;
+}
+.aling a{
+    padding: 6px 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color: rgb(239, 71, 105);
+}
+.aling h2{
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+    padding: 0px;
+    font-weight: bolder;
+}
+.ho h2{
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    color: #000;
+    padding: 0px;
+    font-weight: bolder;
+}
+
+.contenido{
+    height: 900px;
+}
+/* Sidenav usuario prueba */
+.Muser_img{
+    /* background-image: url(../../../../public/assets/png/userBack.jpg);  */
+    background-image: linear-gradient(to right bottom, rgba(41, 48, 48, 0.297), 
+    rgba(75, 50, 50, 0.247)), url(../../../../public/assets/png/userBack.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    padding: 20px;
+}
+.Muser_parrafo{
+    color: #fff;
+    padding-block: 40px;
+    font-size: 18px;
+}
+
+/* fin de usuario prueba */

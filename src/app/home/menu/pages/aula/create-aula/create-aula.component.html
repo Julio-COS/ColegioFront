@@ -1,0 +1,71 @@
+
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto" [formGroup]="form">
+    <h4 class="Atitle">Creación Aula</h4>
+
+    <div class="flex flex-col align-middle min-w-0.5 mx-auto relative">
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-5">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Nivel
+                </label>
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline peer"
+                formControlName="nivel"
+                [ngClass]="{'is-invalid': isInvalid('nivel')}">
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                </select>
+                <div *ngIf="isInvalid('nivel')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('nivel')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Sección
+                </label>
+                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="seccion"
+                [ngClass]="{'is-invalid': isInvalid('seccion')}">
+                <div *ngIf="isInvalid('seccion')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('seccion')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row my-2 content-between">
+            <div class="mr-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Grado Actual
+                </label>
+                <select name="select" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                formControlName="gradoActual"
+                [ngClass]="{'is-invalid': isInvalid('gradoActual')}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <div *ngIf="isInvalid('gradoActual')" class="invalid-feedback">
+                    <div *ngIf="isRequerido('gradoActual')">
+                        Debe completar el campo*
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid my-2 gap-3 justify-start">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline" 
+                type="submit" (click)="addData()" mat-flat-button>Enviar Data<i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline"
+                type="button" (click)="regresar() " mat-flat-button style="background-color: #ef476f;">
+                Regresar<i class="fa-solid fa-circle-arrow-left" ></i>
+            </button>
+        </div>
+    </div>
+</form>
