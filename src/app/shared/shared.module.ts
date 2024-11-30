@@ -48,6 +48,8 @@ import { MatLabel } from '@angular/material/form-field';
     MatHeaderCell,
     MatRow,
     MatRowDef,
+    MatCell,
+    MatRowDef,
     MatHeaderCellDef,
     MatHeaderRow,
     MatTable,
@@ -56,7 +58,7 @@ import { MatLabel } from '@angular/material/form-field';
     MatInputModule,
     MatRippleModule,
     MatInput,
-    MatLabel
+    MatLabel,
 
   ],exports:[
     HeaderComponent,

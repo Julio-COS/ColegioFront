@@ -67,10 +67,15 @@ main{
     height: 200px;
     padding: 20px;
 }
+.Muser_parrafo i{
+    color: #fff;
+    font-size: 38px;
+}
 .Muser_parrafo{
     color: #fff;
-    padding-block: 40px;
     font-size: 18px;
+    display: block;
+    padding-top: 120px;
 }
 
 /* fin de usuario prueba */

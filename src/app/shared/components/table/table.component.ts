@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild, AfterViewIni
 import { Accion, classIcon } from '../../../interface/actionTableColumn';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -13,7 +13,7 @@ export class TableComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<any>([]);
   /* --------------------------------------------------------------- */
-
+  displayedColumns: string[] = [];
   /* dataSource:any=[]; */
   columnas:string[]=[];
   acciones:string[]=[];
@@ -25,6 +25,12 @@ export class TableComponent implements OnInit, AfterViewInit{
 
   @Input() set columns(columns: string[]){
     this.columnas=columns;
+    //--------------------------------------------------------------
+    this.displayedColumns = [...this.columnas];
+    if (this.acciones.length > 0) {
+      this.displayedColumns.push('acciones'); 
+    }
+    //--------------------------------------------------------------
   }
 
   @Input() set data(data:any){
@@ -37,6 +43,11 @@ export class TableComponent implements OnInit, AfterViewInit{
 
   @Input() set accion(data: string[]) {
     this.acciones = data;
+    //-------------------------------------------------------------------
+    if (data.length > 0 && !this.displayedColumns.includes('acciones')) {
+      this.displayedColumns.push('acciones');
+    }
+    //-------------------------------------------------------------------
   }
 
   @Output() action: EventEmitter<Accion> = new EventEmitter();
@@ -51,6 +62,7 @@ export class TableComponent implements OnInit, AfterViewInit{
 /* Por realizar */
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+
   } 
   constructor() {}
 

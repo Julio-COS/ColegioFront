@@ -40,4 +40,9 @@ export class AuthService {
     localStorage.removeItem('authToken');
     this.isAuthenticated.next(false);
   }
+
+  /* por modificar */
+  getUsuarioActual(): string | null {
+    return localStorage.getItem('usuario');
+  }
 }

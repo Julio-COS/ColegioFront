@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     UsuarioComponent,
@@ -24,6 +25,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSidenavModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule
   ]
 })
 export class HomeModule { }

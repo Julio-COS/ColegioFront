@@ -9,8 +9,8 @@
         </div>
         <mat-drawer-container class="example-container" autosize >
             <mat-drawer #drawer class="example-sidenav" mode="side">
-                <div class="Muser_img" >
-                    <p class="Muser_parrafo"><i class="fa-solid fa-circle-user"></i> User</p>
+                <div class="Muser_img" *ngIf="usuario_actual">
+                    <p class="Muser_parrafo"><i class="fa-solid fa-circle-user"></i> {{usuario_actual}}</p>
                 </div>
                 <div class="ho">
                     <app-navigation></app-navigation>

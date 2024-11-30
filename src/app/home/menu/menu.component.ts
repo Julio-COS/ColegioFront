@@ -12,5 +12,19 @@ export class MenuComponent{
   activate:boolean=true;
   width:string="w-full";
   showFiller = false;
+  usuario_actual: String | null = null;
 
+  constructor(private authService: AuthService){
+    
+  }
+  ngOnInit(): void {
+    this.usuario_actual = this.authService.getUsuarioActual();
+    this.authService.getAuthToken().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.usuario_actual = this.authService.getUsuarioActual();
+      } else {
+        this.usuario_actual = null;
+      }
+    });
+  }
 }

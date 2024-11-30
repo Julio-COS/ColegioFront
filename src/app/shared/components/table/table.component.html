@@ -1,11 +1,11 @@
-<div class="relative overflow-x-auto">
+<!-- <div class="relative overflow-x-auto">
     <div class="">
         <mat-form-field appearance="fill">
             <mat-label>Buscar <i class="fa-solid fa-magnifying-glass"></i></mat-label>
             <input class="Tfiltro_one" matInput (keyup)="applyFilter($event)" placeholder="Ingrese el dato" #input>
         </mat-form-field>
     </div>
-    <table  class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-blue-300 dark:bg-gray-100 dark:text-gray-800">
             <tr>
                 <th *ngFor="let columna of columnas" scope="col" class="px-3 py-3">
@@ -38,77 +38,40 @@
                     showFirstLastButtons
                     aria-label="Select page of periodic elements">
     </mat-paginator>
-</div>
-
-<!-- <div class="relative overflow-x-auto">
-    <mat-form-field appearance="fill">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field>
-
+</div> -->
+<div class="relative overflow-x-auto">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Buscar <i class="fa-solid fa-magnifying-glass"></i></mat-label>
+            <input class="Tfiltro_one" matInput (keyup)="applyFilter($event)" placeholder="Ingrese el dato" #input>
+        </mat-form-field>
+    </div>
     <table mat-table [dataSource]="dataSource" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        
-        <ng-container *ngFor="let columna of columnas">
-            <th mat-header-cell *matHeaderCellDef> {{columna}} </th>
-            <td mat-ripple mat-cell *matCellDef="let element"> 
+        <ng-container *ngFor="let columna of columnas" [matColumnDef]="columna">
+            <th mat-header-cell *matHeaderCellDef class="px-3 py-3 text-xs text-gray-700 uppercase bg-blue-300 dark:bg-gray-100 dark:text-gray-800" id="Header_camb">{{columna}}</th>
+            <td mat-cell *matCellDef="let data" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-black">
                 <ng-container *ngIf="columna === 'fechaNacimiento' || columna === 'fechaRegistro' || columna === 'fechaEmision'">
-                    {{element[columna] | date: 'dd/MM/yyyy'}}
+                    {{data[columna] | date: 'dd/MM/yyyy'}}
                 </ng-container>
                 <ng-container *ngIf="columna !== 'fechaNacimiento' && columna !== 'fechaRegistro' && columna !== 'fechaEmision'">
-                    {{element[columna]}}
+                    {{data[columna]}}
                 </ng-container>
             </td>
         </ng-container>
-
-        <ng-container *ngIf="acciones.length > 0">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td mat-cell *matCellDef="let element">
-                <a *ngFor="let accion of acciones" class="dropdown-item" (click)="onAction(accion, element)" href="javascript:void(0);">
-                    <img [class]="getIcon(accion)" [src]="getIcon(accion)[1]"/>
-                </a>
+        <ng-container *ngIf="acciones.length > 0" matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef class="text-xs text-gray-700 uppercase" style="background-color: #e9ecef;">Acciones</th>
+            <td mat-cell *matCellDef="let data" class="px-3 py-2 text-center">
+                <div class="flex items-center gap-2">
+                    <a *ngFor="let accion of acciones" (click)="onAction(accion, data)" href="javascript:void(0);">
+                        <img [class]="getIcon(accion)" [src]="getIcon(accion)[1]" style="width: 35px; height: 35px;"/>
+                    </a>
+                </div>
             </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-    <mat-paginator [pageSizeOptions]="[7, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-    </mat-paginator>
-</div> -->
-
-<!-- <div class="relative overflow-x-auto">
-    <table mat-table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-blue-300 dark:bg-gray-100 dark:text-gray-800">
-            <tr>
-                <th *ngFor="let columna of columnas" mat-header-cell scope="col" class="px-3 py-3">
-                    {{columna}}
-                </th>
-                <th *ngIf="acciones.length > 0" mat-header-cell>
-                    Acciones
-                </th>
-            </tr>
-        </thead>
-        <tbody mat-row *matRowDef="let row; columns: displayedColumns;">
-            <tr *ngFor="let data of dataSource.data" class="bg-white border-b dark:bg-white dark:border-gray-300">
-                <td mat-cell *ngFor="let nombre of columnas" scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-black">
-                        <ng-container *ngIf=" nombre === 'fechaNacimiento' || nombre === 'fechaRegistro' || nombre === 'fechaEmision'" >
-                        {{data[nombre] | date: 'dd/MM/yyyy'}}
-                      </ng-container>
-                      <ng-container *ngIf=" nombre !== 'fechaNacimiento' && nombre !== 'fechaRegistro' && nombre !== 'fechaEmision'">
-                        {{data[nombre]}}
-                      </ng-container>                                                                       
-                </td>
-                <td *ngIf="acciones.length > 0" class="flex" mat-cell>
-                    <a *ngFor="let accion of acciones" class="dropdown-item" (click)="onAction(accion,data)"
-                        href="javascript:void(0);"> <img [class]="getIcon(accion)" [src]="getIcon(accion)[1]"/>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <mat-paginator [pageSizeOptions]="[7, 10, 20]"
-                    showFirstLastButtons
-                    aria-label="Select page of periodic elements">
-    </mat-paginator>
-</div> -->
+    <div class="container">
+        <mat-paginator [pageSizeOptions]="[7, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+    </div>
+</div>

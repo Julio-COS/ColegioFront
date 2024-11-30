@@ -8,5 +8,4 @@ button i{
 }
 button i:hover{
     transition: 1.1s;
-    transform: rotate(90deg);
 }

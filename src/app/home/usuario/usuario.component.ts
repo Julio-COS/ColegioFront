@@ -5,7 +5,7 @@ import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -16,6 +16,8 @@ export class UsuarioComponent implements OnInit{
   private _snackBar = inject(MatSnackBar);
   usuario: string = '';
   password: string = '';
+  //
+  loading: boolean = false;
 
   constructor(
 
@@ -29,10 +31,12 @@ export class UsuarioComponent implements OnInit{
   }
 
 login() {
+
   this.authService
   .login(this.usuario, this.password)
   .subscribe(isAuthenticated => {
     if (isAuthenticated) {
+      //
       /* alert('Login exitoso'); */
       this._snackBar.open('Credenciales correctas', 'Aceptar',{
         duration:4000,
